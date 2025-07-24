@@ -1,0 +1,14 @@
+<h1>Standalone Angular + Syncfusion DataGrid</h1>
+    <ejs-grid [dataSource]="data" allowPaging="true" allowSorting="true">
+      <e-columns>
+		<ng-container *ngFor="let attribute of attributes">
+			<e-column field="link"  headerText="Link" width="20" textAlign="Left" [template]="idTemplate" [allowEditing]="false"></e-column>	
+		</ng-container>
+        <e-column field="link"  headerText="Link" width="20" textAlign="Left" [template]="idTemplate" [allowEditing]="false"></e-column>
+      </e-columns>
+	  <ng-template #idTemplate let-row>
+		<button (click)="openTab(row)">{{row.symbol}}</button>
+	</ng-template>
+
+    </ejs-grid>
+	
