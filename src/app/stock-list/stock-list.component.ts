@@ -1,18 +1,20 @@
-import { NgForOf } from '@angular/common';
+import { CommonModule, NgForOf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CommandColumn, EditService, GridModule, PageService, ToolbarService } from '@syncfusion/ej2-angular-grids';
+import { PatternDataService } from '../pattern-data.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   standalone:true,
   selector: 'stock-list',
   templateUrl: './stock-list.component.html',
   styleUrls: ['./stock-list.component.css'],
-  imports:[GridModule,NgForOf],
-   providers: [EditService, ToolbarService,PageService],
+  imports:[GridModule,NgForOf,CommonModule],
+   providers: [EditService, ToolbarService,PageService,PatternDataService],
 })
 export class StockListComponent implements OnInit {
   attributes = []
-  data :any= [
+ /* data :any= [
  {symbol:'AES',link:'https://www.tradingview.com/symbols/AES'},
 {symbol:'ASTS',link:'https://www.tradingview.com/symbols/ASTS'},
 {symbol:'GE',link:'https://www.tradingview.com/symbols/GE'},
@@ -29,7 +31,9 @@ export class StockListComponent implements OnInit {
 {symbol:'NGG',link:'https://www.tradingview.com/symbols/NGG'},
 {symbol:'ARQQ',link:'https://www.tradingview.com/symbols/ARQQ'},
 {symbol:'MRCY',link:'https://www.tradingview.com/symbols/MRCY'},
- ];
+ ]*/
+data:any[] = []
+ 
 
    // ✅ Grid Edit Settings
   editSettings = { allowEditing: true, mode: 'Normal' };
@@ -37,9 +41,31 @@ export class StockListComponent implements OnInit {
   // ✅ Toolbar for editing
   toolbar = ['Edit', 'Update', 'Cancel'];
   
-  constructor() { }
+  constructor(private dataService:PatternDataService) { }
   
   ngOnInit(): void {
+   
+    this.dataService.getData("DATA_2025-07-22")
+    .subscribe(
+        resp=>this.parseData(resp)
+
+    )
+    
+  }
+  parseData(resp:any){
+    
+    const filtereddata = resp.filter((item:any)=>item.pattern=="cupandhandle")
+    //item=>properties.reduce((acc,propObj)=>{return {...acc,[propObj.property]:item.result[propObj.property]}},{})
+    const attributes = filtereddata[0].attributes
+    const data = filtereddata[0].pattern_data.map((item:any)=>JSON.parse(item.pattern_result))
+    const flat_data = data.map((item:any)=>attributes.reduce((acc:any,attribute:any)=>{return {...acc,[attribute]:item.result[attribute]}},item))
+    this.data = flat_data
+    this.attributes = attributes
+    console.log(this.data[0].entry)
+    
+    
+   
+
   }
   private openTabs: { [symbol: string]: Window | null } = {}; 
   openTab(row:any){
