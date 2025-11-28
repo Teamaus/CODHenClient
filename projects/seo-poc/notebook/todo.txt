@@ -1,2 +1,4 @@
 1. continue with details summary : add collapse on the codcoda card 
-2, add summary details on the stock-card-list
+2. add summary details on the stock-card-list 
+3. customize the styling 
+
