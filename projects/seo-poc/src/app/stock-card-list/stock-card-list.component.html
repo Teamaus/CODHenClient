@@ -1,3 +1,14 @@
-<div *ngFor="let stock of stocks()">
-	<codcoda-stock-card [stock]="stock"></codcoda-stock-card>
-</div>
+<details>
+	<summary>
+		<div class="stock-card-list">
+		<div *ngFor="let stock of first_stocks()">
+			<codcoda-stock-card [stock]="stock"></codcoda-stock-card>
+		</div>
+	</div>
+	</summary>
+	<div class="stock-card-list">
+		<div *ngFor="let stock of stocks()">
+			<codcoda-stock-card [stock]="stock"></codcoda-stock-card>
+		</div>
+	</div>
+</details>

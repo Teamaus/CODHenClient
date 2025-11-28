@@ -1,0 +1,12 @@
+details[open] summary {
+  display: none;
+}
+
+.stock-card-list
+ {
+ 	display: flex;
+ 	flex-direction: row;
+ 	gap: 20px;
+	flex-wrap: wrap;  
+	max-width: 1900;  
+ }

@@ -14,4 +14,7 @@ export class StockCardListComponent {
   ngOnInit(): void {
     console.log("stocks in list:",this.stocks())
   }
+  first_stocks(){
+    return this.stocks().slice(0,2);
+  }
 }

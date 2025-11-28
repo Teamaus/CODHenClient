@@ -17,7 +17,17 @@ export class StockCardComponent {
   toggleSelect(){
      this.isSelected.set(!this.isSelected());
   }
+  Collapse(event: MouseEvent){
+    event.stopPropagation(); // so the summary / card click doesn't re-toggle it
 
+    const target = event.target as HTMLElement;
+    const details = target.closest('details') as HTMLDetailsElement | null;
+
+    if (details) {
+      details.open = false;  // ⬅️ closes the <details> directly
+  }
+   
+  }
 
 
 }
