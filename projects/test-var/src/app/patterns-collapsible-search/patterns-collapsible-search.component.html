@@ -1,0 +1,41 @@
+<details class="panel" *ngFor="let s of sections; let i = index" [open]="s.open">
+  <summary class="summary">
+    <!-- Normal section title -->
+    <span class="h2" *ngIf="s.title.trim().toLowerCase() !== '## search'">
+      {{ s.title }}
+    </span>
+
+    <!-- Special Search section -->
+    <ng-container *ngIf="s.title.trim().toLowerCase() === '## search'">
+      <span class="h2">{{ s.title }}</span>
+
+      <div class="search-inline" (click)="$event.stopPropagation()">
+        <input
+          type="text"
+          
+          placeholder="Type ticker or criteria..."
+          class="search-input"
+        />
+        <button type="button" class="btn" (click)="runSearch(); $event.stopPropagation()">
+          Search
+        </button>
+      </div>
+    </ng-container>
+
+    <!-- Chevron -->
+    <span class="chev" aria-hidden="true">▾</span>
+  </summary>
+
+  <!-- Body content -->
+  <div class="content" *ngIf="s.title.trim().toLowerCase() !== '## search'" [innerHTML]="s.html"></div>
+
+  <!-- Search results -->
+  <div class="content" *ngIf="s.title.trim().toLowerCase() === '## search'">
+    <div *ngIf="searchRan && searchResults.length === 0" class="muted">No matches found.</div>
+    <ul *ngIf="searchResults.length">
+      <li *ngFor="let r of searchResults">
+        <a [href]="r.url" target="_blank">{{ r.symbol }}</a> – {{ r.context }}
+      </li>
+    </ul>
+  </div>
+</details>

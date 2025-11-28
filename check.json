@@ -1,0 +1,223 @@
+client:737 [vite] connecting...
+client:860 [vite] connected.
+core.mjs:20842 Angular is running in development mode.
+pattern-data.service.ts:17 RESP:>>> {"symbol":"SOFI","link":"https://www.tradingview.com/symbols/SOFI","result":{"sma":{"Date":"10/21/2025 12:00:00 AM","Close":19.008278145695364,"Open":18.95356957644027,"High":19.458794675915446,"Low":18.47930461681442,"AdjClose":19.008278145695364,"Index":248,"Volume":67654493.37748344,"Value":19.008278145695364},"first":{"Date":"6/30/2025 12:00:00 AM","Open":17.7299995422363,"High":18.9200000762939,"Low":17.5900001525879,"Close":18.2099990844727,"AdjClose":18.2099990844727,"Volume":149080200,"Index":169,"Value":18.2099990844727},"last":{"Date":"10/21/2025 12:00:00 AM","Open":28.5599994659424,"High":29.0699996948242,"Low":28.1499996185303,"Close":28.75,"AdjClose":28.75,"Volume":56187600,"Index":248,"Value":28.75},"low-last":{"Date":"10/17/2025 12:00:00 AM","Open":26.1000003814697,"High":26.9200000762939,"Low":26.0100002288818,"Close":26.5400009155273,"AdjClose":26.5400009155273,"Volume":48123300,"Index":246,"Value":26.5400009155273},"last-low":{"Date":"10/17/2025 12:00:00 AM","Open":26.1000003814697,"High":26.9200000762939,"Low":26.0100002288818,"Close":26.5400009155273,"AdjClose":26.5400009155273,"Volume":48123300,"Index":246,"Value":26.5400009155273},"top":{"Date":"9/22/2025 12:00:00 AM","Open":29.2999992370606,"High":30.2999992370606,"Low":28.9699993133545,"Close":29.8099994659424,"AdjClose":29.8099994659424,"Volume":64448300,"Index":227,"Value":29.8099994659424,"Optional":false},"entry-candle":{"Date":"10/16/2025 12:00:00 AM","Open":28.0699996948242,"High":28.4400005340576,"Low":26.25,"Close":26.6000003814697,"AdjClose":26.6000003814697,"Volume":73472500,"Index":245,"Value":26.6000003814697},"entry":26.6000003814697,"stop-loss":24.460000991821232,"target-profit":29.809999465942404,"name":"sma-long.html","complete":true,"avgVolume":60776397.590361446,"optional":{"support-candle":{"Date":"7/14/2025 12:00:00 AM","Open":21.3700008392334,"High":21.4400005340576,"Low":20.4200000762939,"Close":21.3299999237061,"AdjClose":21.3299999237061,"Volume":67028200,"Index":178,"Value":21.3299999237061},"resistance-candle":{"Date":"9/22/2025 12:00:00 AM","Open":29.2999992370606,"High":30.2999992370606,"Low":28.9699993133545,"Close":29.8099994659424,"AdjClose":29.8099994659424,"Volume":64448300,"Index":227,"Value":29.8099994659424},"support":21.3299999237061,"resistance":29.8099994659424,"next-support":{"Date":"7/14/2025 12:00:00 AM","Open":21.3700008392334,"High":21.4400005340576,"Low":20.4200000762939,"Close":21.3299999237061,"AdjClose":21.3299999237061,"Volume":67028200,"Index":178,"Value":21.3299999237061},"next-resistance-candle":{"Date":"10/1/2025 12:00:00 AM","Open":26.7299995422363,"High":27.3299999237061,"Low":25.6399993896484,"Close":25.7600002288818,"AdjClose":25.7600002288818,"Volume":81148100,"Index":234,"Value":25.7600002288818},"resistance-message":"resistance: 29.8099994659424","support-message":"support: 21.3299999237061","last-message":"last price 28.75","entry-message":"entry price 26.6000003814697","resistance-line-message":"resistance at 29.8099994659424","support-line-message":"support at 21.3299999237061","breakout-message":"already breakout 28.75 breakout at 26.6000003814697","prev-sma":{"Date":"6/30/2025 12:00:00 AM","Close":14.164768200046966,"Open":14.139648961705088,"High":14.50360264051829,"Low":13.77825828577509,"AdjClose":14.164768200046966,"Index":169,"Volume":54712065.56291391,"Value":14.164768200046966}}}}
+pattern-data.service.ts:19 OPTIONAL:==>>> {support-candle: {…}, resistance-candle: {…}, support: 21.3299999237061, resistance: 29.8099994659424, next-support: {…}, …}
+search-engine.service.ts:81 what []
+search-engine.service.ts:24 FILTERED: 0 []
+search-engine.service.ts:24 FILTERED: 70 (70) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+search-engine.service.ts:84 dataBySymbol []
+search-engine.service.ts:85 dataByPattern (70) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]0: id: "DATA_2025-10-21"parent: {vid: 550, id: 'DATA_2025-10-21', pattern: 'sma-long', window: 80, rvalue: 1.5, …}pattern_result: "{\"symbol\":\"SOFI\",\"link\":\"https://www.tradingview.com/symbols/SOFI\",\"result\":{\"sma\":{\"Date\":\"10/21/2025 12:00:00 AM\",\"Close\":19.008278145695364,\"Open\":18.95356957644027,\"High\":19.458794675915446,\"Low\":18.47930461681442,\"AdjClose\":19.008278145695364,\"Index\":248,\"Volume\":67654493.37748344,\"Value\":19.008278145695364},\"first\":{\"Date\":\"6/30/2025 12:00:00 AM\",\"Open\":17.7299995422363,\"High\":18.9200000762939,\"Low\":17.5900001525879,\"Close\":18.2099990844727,\"AdjClose\":18.2099990844727,\"Volume\":149080200,\"Index\":169,\"Value\":18.2099990844727},\"last\":{\"Date\":\"10/21/2025 12:00:00 AM\",\"Open\":28.5599994659424,\"High\":29.0699996948242,\"Low\":28.1499996185303,\"Close\":28.75,\"AdjClose\":28.75,\"Volume\":56187600,\"Index\":248,\"Value\":28.75},\"low-last\":{\"Date\":\"10/17/2025 12:00:00 AM\",\"Open\":26.1000003814697,\"High\":26.9200000762939,\"Low\":26.0100002288818,\"Close\":26.5400009155273,\"AdjClose\":26.5400009155273,\"Volume\":48123300,\"Index\":246,\"Value\":26.5400009155273},\"last-low\":{\"Date\":\"10/17/2025 12:00:00 AM\",\"Open\":26.1000003814697,\"High\":26.9200000762939,\"Low\":26.0100002288818,\"Close\":26.5400009155273,\"AdjClose\":26.5400009155273,\"Volume\":48123300,\"Index\":246,\"Value\":26.5400009155273},\"top\":{\"Date\":\"9/22/2025 12:00:00 AM\",\"Open\":29.2999992370606,\"High\":30.2999992370606,\"Low\":28.9699993133545,\"Close\":29.8099994659424,\"AdjClose\":29.8099994659424,\"Volume\":64448300,\"Index\":227,\"Value\":29.8099994659424,\"Optional\":false},\"entry-candle\":{\"Date\":\"10/16/2025 12:00:00 AM\",\"Open\":28.0699996948242,\"High\":28.4400005340576,\"Low\":26.25,\"Close\":26.6000003814697,\"AdjClose\":26.6000003814697,\"Volume\":73472500,\"Index\":245,\"Value\":26.6000003814697},\"entry\":26.6000003814697,\"stop-loss\":24.460000991821232,\"target-profit\":29.809999465942404,\"name\":\"sma-long.html\",\"complete\":true,\"avgVolume\":60776397.590361446,\"optional\":{\"support-candle\":{\"Date\":\"7/14/2025 12:00:00 AM\",\"Open\":21.3700008392334,\"High\":21.4400005340576,\"Low\":20.4200000762939,\"Close\":21.3299999237061,\"AdjClose\":21.3299999237061,\"Volume\":67028200,\"Index\":178,\"Value\":21.3299999237061},\"resistance-candle\":{\"Date\":\"9/22/2025 12:00:00 AM\",\"Open\":29.2999992370606,\"High\":30.2999992370606,\"Low\":28.9699993133545,\"Close\":29.8099994659424,\"AdjClose\":29.8099994659424,\"Volume\":64448300,\"Index\":227,\"Value\":29.8099994659424},\"support\":21.3299999237061,\"resistance\":29.8099994659424,\"next-support\":{\"Date\":\"7/14/2025 12:00:00 AM\",\"Open\":21.3700008392334,\"High\":21.4400005340576,\"Low\":20.4200000762939,\"Close\":21.3299999237061,\"AdjClose\":21.3299999237061,\"Volume\":67028200,\"Index\":178,\"Value\":21.3299999237061},\"next-resistance-candle\":{\"Date\":\"10/1/2025 12:00:00 AM\",\"Open\":26.7299995422363,\"High\":27.3299999237061,\"Low\":25.6399993896484,\"Close\":25.7600002288818,\"AdjClose\":25.7600002288818,\"Volume\":81148100,\"Index\":234,\"Value\":25.7600002288818},\"resistance-message\":\"resistance: 29.8099994659424\",\"support-message\":\"support: 21.3299999237061\",\"last-message\":\"last price 28.75\",\"entry-message\":\"entry price 26.6000003814697\",\"resistance-line-message\":\"resistance at 29.8099994659424\",\"support-line-message\":\"support at 21.3299999237061\",\"breakout-message\":\"already breakout 28.75 breakout at 26.6000003814697\",\"prev-sma\":{\"Date\":\"6/30/2025 12:00:00 AM\",\"Close\":14.164768200046966,\"Open\":14.139648961705088,\"High\":14.50360264051829,\"Low\":13.77825828577509,\"AdjClose\":14.164768200046966,\"Index\":169,\"Volume\":54712065.56291391,\"Value\":14.164768200046966}}}}"symbol: "SOFI"vid: 550[[Prototype]]: Object1: {vid: 550, id: 'DATA_2025-10-21', symbol: 'HOOD', pattern_result: '{"symbol":"HOOD","link":"https://www.tradingview.c…:36703951.655629136,"Value":50.56172172596912}}}}', parent: {…}}2: {vid: 550, id: 'DATA_2025-10-21', symbol: 'CLSK', pattern_result: '{"symbol":"CLSK","link":"https://www.tradingview.c…":28241263.57615894,"Value":9.842748357760195}}}}', parent: {…}}3: {vid: 550, id: 'DATA_2025-10-21', symbol: 'QS', pattern_result: '{"symbol":"QS","link":"https://www.tradingview.com…:16414837.748344371,"Value":4.690728459137165}}}}', parent: {…}}4: {vid: 550, id: 'DATA_2025-10-21', symbol: 'JOBY', pattern_result: '{"symbol":"JOBY","link":"https://www.tradingview.c…":17425311.258278146,"Value":7.47205298152191}}}}', parent: {…}}5: {vid: 550, id: 'DATA_2025-10-21', symbol: 'BABA', pattern_result: '{"symbol":"BABA","link":"https://www.tradingview.c…:21620851.65562914,"Value":110.97033120464805}}}}', parent: {…}}6: {vid: 550, id: 'DATA_2025-10-21', symbol: 'LYFT', pattern_result: '{"symbol":"LYFT","link":"https://www.tradingview.c…":17371754.96688742,"Value":13.87735102824028}}}}', parent: {…}}7: {vid: 550, id: 'DATA_2025-10-21', symbol: 'RKT', pattern_result: '{"symbol":"RKT","link":"https://www.tradingview.co…:8612988.079470199,"Value":12.910198647454875}}}}', parent: {…}}8: {vid: 550, id: 'DATA_2025-10-21', symbol: 'SBET', pattern_result: '{"symbol":"SBET","link":"https://www.tradingview.c…:2405505.3377483445,"Value":9.296026452487666}}}}', parent: {…}}9: {vid: 550, id: 'DATA_2025-10-21', symbol: 'U', pattern_result: '{"symbol":"U","link":"https://www.tradingview.com/…11527038.410596026,"Value":22.626754937582458}}}}', parent: {…}}10: {vid: 550, id: 'DATA_2025-10-21', symbol: 'EOSE', pattern_result: '{"symbol":"EOSE","link":"https://www.tradingview.c…":9345628.476821192,"Value":4.629437077124387}}}}', parent: {…}}11: {vid: 550, id: 'DATA_2025-10-21', symbol: 'UUUU', pattern_result: '{"symbol":"UUUU","link":"https://www.tradingview.c…":8093248.344370861,"Value":5.072052988784992}}}}', parent: {…}}12: {vid: 550, id: 'DATA_2025-10-21', symbol: 'XPEV', pattern_result: '{"symbol":"XPEV","link":"https://www.tradingview.c…10548729.139072848,"Value":17.575430427955474}}}}', parent: {…}}13: {vid: 550, id: 'DATA_2025-10-21', symbol: 'MP', pattern_result: '{"symbol":"MP","link":"https://www.tradingview.com…:5799305.298013245,"Value":23.319867645667877}}}}', parent: {…}}14: {vid: 550, id: 'DATA_2025-10-21', symbol: 'PL', pattern_result: '{"symbol":"PL","link":"https://www.tradingview.com…":6275113.245033112,"Value":4.299602649069779}}}}', parent: {…}}15: {vid: 550, id: 'DATA_2025-10-21', symbol: 'TME', pattern_result: '{"symbol":"TME","link":"https://www.tradingview.co…:7558527.814569537,"Value":13.679933762708247}}}}', parent: {…}}16: {vid: 550, id: 'DATA_2025-10-21', symbol: 'HUT', pattern_result: '{"symbol":"HUT","link":"https://www.tradingview.co…:6080446.357615894,"Value":18.375827839832432}}}}', parent: {…}}17: {vid: 550, id: 'DATA_2025-10-21', symbol: 'UAMY', pattern_result: '{"symbol":"UAMY","link":"https://www.tradingview.c…:3970960.2649006625,"Value":2.124172185430464}}}}', parent: {…}}18: {vid: 550, id: 'DATA_2025-10-21', symbol: 'AMPX', pattern_result: '{"symbol":"AMPX","link":"https://www.tradingview.c…:3707247.0198675497,"Value":2.722384099139283}}}}', parent: {…}}19: {vid: 550, id: 'DATA_2025-10-21', symbol: 'BIDU', pattern_result: '{"symbol":"BIDU","link":"https://www.tradingview.c…":4202101.324503311,"Value":87.73052973463045}}}}', parent: {…}}20: {vid: 550, id: 'DATA_2025-10-21', symbol: 'BZ', pattern_result: '{"symbol":"BZ","link":"https://www.tradingview.com…:4364878.145695364,"Value":15.993708591587495}}}}', parent: {…}}21: {vid: 550, id: 'DATA_2025-10-21', symbol: 'GENI', pattern_result: '{"symbol":"GENI","link":"https://www.tradingview.c…:3599731.1258278145,"Value":9.561589373658036}}}}', parent: {…}}22: {vid: 550, id: 'DATA_2025-10-21', symbol: 'STX', pattern_result: '{"symbol":"STX","link":"https://www.tradingview.co…":3712820.5298013245,"Value":98.3794702694116}}}}', parent: {…}}23: {vid: 550, id: 'DATA_2025-10-21', symbol: 'SATS', pattern_result: '{"symbol":"SATS","link":"https://www.tradingview.c…2720942.3841059604,"Value":24.357549679989848}}}}', parent: {…}}24: {vid: 550, id: 'DATA_2025-10-21', symbol: 'KTOS', pattern_result: '{"symbol":"KTOS","link":"https://www.tradingview.c…:2612463.5761589403,"Value":32.05397357056472}}}}', parent: {…}}25: {vid: 550, id: 'DATA_2025-10-21', symbol: 'PGY', pattern_result: '{"symbol":"PGY","link":"https://www.tradingview.co…:2184993.377483444,"Value":12.119172178356852}}}}', parent: {…}}26: {vid: 550, id: 'DATA_2025-10-21', symbol: 'CG', pattern_result: '{"symbol":"CG","link":"https://www.tradingview.com…:2764645.0331125828,"Value":47.39039740657175}}}}', parent: {…}}27: {vid: 550, id: 'DATA_2025-10-21', symbol: 'FUTU', pattern_result: '{"symbol":"FUTU","link":"https://www.tradingview.c…":2619732.450331126,"Value":99.09576168439246}}}}', parent: {…}}28: {vid: 550, id: 'DATA_2025-10-21', symbol: 'PRCH', pattern_result: '{"symbol":"PRCH","link":"https://www.tradingview.c…:2614095.3642384107,"Value":6.586920526643462}}}}', parent: {…}}29: {vid: 550, id: 'DATA_2025-10-21', symbol: 'LEVI', pattern_result: '{"symbol":"LEVI","link":"https://www.tradingview.c…:2245250.331125828,"Value":17.051920543443288}}}}', parent: {…}}30: {vid: 550, id: 'DATA_2025-10-21', symbol: 'AAP', pattern_result: '{"symbol":"AAP","link":"https://www.tradingview.co…":2614637.086092715,"Value":41.85357610437254}}}}', parent: {…}}31: {vid: 550, id: 'DATA_2025-10-21', symbol: 'COUR', pattern_result: '{"symbol":"COUR","link":"https://www.tradingview.c…:1984314.5695364238,"Value":8.084437105039887}}}}', parent: {…}}32: {vid: 550, id: 'DATA_2025-10-21', symbol: 'WYNN', pattern_result: '{"symbol":"WYNN","link":"https://www.tradingview.c…":2455994.701986755,"Value":86.33735126217469}}}}', parent: {…}}33: {vid: 550, id: 'DATA_2025-10-21', symbol: 'OUST', pattern_result: '{"symbol":"OUST","link":"https://www.tradingview.c…1870394.0397350993,"Value":10.891986783766589}}}}', parent: {…}}34: {vid: 550, id: 'DATA_2025-10-21', symbol: 'INOD', pattern_result: '{"symbol":"INOD","link":"https://www.tradingview.c…:2089379.4701986755,"Value":41.62132443813299}}}}', parent: {…}}35: {vid: 550, id: 'DATA_2025-10-21', symbol: 'WT', pattern_result: '{"symbol":"WT","link":"https://www.tradingview.com…:1690943.0463576159,"Value":9.716490057130521}}}}', parent: {…}}36: {vid: 550, id: 'DATA_2025-10-21', symbol: 'SBH', pattern_result: '{"symbol":"SBH","link":"https://www.tradingview.co…e":2193576.821192053,"Value":9.86715233720691}}}}', parent: {…}}37: {vid: 550, id: 'DATA_2025-10-21', symbol: 'DAN', pattern_result: '{"symbol":"DAN","link":"https://www.tradingview.co…1916385.4304635762,"Value":14.003907247884381}}}}', parent: {…}}38: {vid: 550, id: 'DATA_2025-10-21', symbol: 'YOU', pattern_result: '{"symbol":"YOU","link":"https://www.tradingview.co…:2011541.7218543047,"Value":25.46377481372151}}}}', parent: {…}}39: {vid: 550, id: 'DATA_2025-10-21', symbol: 'HALO', pattern_result: '{"symbol":"HALO","link":"https://www.tradingview.c…:1936078.1456953643,"Value":55.62152326975436}}}}', parent: {…}}40: {vid: 550, id: 'DATA_2025-10-21', symbol: 'OCUL', pattern_result: '{"symbol":"OCUL","link":"https://www.tradingview.c…:1539965.5629139072,"Value":7.998874196943069}}}}', parent: {…}}41: {vid: 550, id: 'DATA_2025-10-21', symbol: 'RSI', pattern_result: '{"symbol":"RSI","link":"https://www.tradingview.co…:1704725.165562914,"Value":12.943443683599007}}}}', parent: {…}}42: {vid: 550, id: 'DATA_2025-10-21', symbol: 'LQDA', pattern_result: '{"symbol":"LQDA","link":"https://www.tradingview.c…1347903.9735099338,"Value":14.007284783369656}}}}', parent: {…}}43: {vid: 550, id: 'DATA_2025-10-21', symbol: 'METC', pattern_result: '{"symbol":"METC","link":"https://www.tradingview.c…ume":734210.0331125828,"Value":9.897486516182}}}}', parent: {…}}44: {vid: 550, id: 'DATA_2025-10-21', symbol: 'BKSY', pattern_result: '{"symbol":"BKSY","link":"https://www.tradingview.c…:1361207.284768212,"Value":11.507814568399592}}}}', parent: {…}}45: {vid: 550, id: 'DATA_2025-10-21', symbol: 'AUPH', pattern_result: '{"symbol":"AUPH","link":"https://www.tradingview.c…:1392556.2913907284,"Value":8.253642356948346}}}}', parent: {…}}46: {vid: 550, id: 'DATA_2025-10-21', symbol: 'ACMR', pattern_result: '{"symbol":"ACMR","link":"https://www.tradingview.c…:1510609.2715231788,"Value":21.41115900380722}}}}', parent: {…}}47: {vid: 550, id: 'DATA_2025-10-21', symbol: 'HOUS', pattern_result: '{"symbol":"HOUS","link":"https://www.tradingview.c…1057419.8675496688,"Value":3.6565562905065265}}}}', parent: {…}}48: {vid: 550, id: 'DATA_2025-10-21', symbol: 'WWW', pattern_result: '{"symbol":"WWW","link":"https://www.tradingview.co…1385213.2450331126,"Value":17.926225220130767}}}}', parent: {…}}49: {vid: 550, id: 'DATA_2025-10-21', symbol: 'ADNT', pattern_result: '{"symbol":"ADNT","link":"https://www.tradingview.c…1433642.3841059604,"Value":16.037284686865398}}}}', parent: {…}}50: {vid: 550, id: 'DATA_2025-10-21', symbol: 'AEHR', pattern_result: '{"symbol":"AEHR","link":"https://www.tradingview.c…e":982682.119205298,"Value":10.81728476088568}}}}', parent: {…}}51: {vid: 550, id: 'DATA_2025-10-21', symbol: 'URGN', pattern_result: '{"symbol":"URGN","link":"https://www.tradingview.c…:1417382.7814569536,"Value":10.40357615616148}}}}', parent: {…}}52: {vid: 550, id: 'DATA_2025-10-21', symbol: 'DQ', pattern_result: '{"symbol":"DQ","link":"https://www.tradingview.com…":840754.9668874172,"Value":17.25993379378161}}}}', parent: {…}}53: {vid: 550, id: 'DATA_2025-10-21', symbol: 'JBGS', pattern_result: '{"symbol":"JBGS","link":"https://www.tradingview.c…1101913.9072847683,"Value":15.806622536766605}}}}', parent: {…}}54: {vid: 550, id: 'DATA_2025-10-21', symbol: 'GCT', pattern_result: '{"symbol":"GCT","link":"https://www.tradingview.co…:1014698.6754966887,"Value":17.95066219607726}}}}', parent: {…}}55: {vid: 550, id: 'DATA_2025-10-21', symbol: 'ORIC', pattern_result: '{"symbol":"ORIC","link":"https://www.tradingview.c…e":981576.821192053,"Value":7.944403970478386}}}}', parent: {…}}56: {vid: 550, id: 'DATA_2025-10-21', symbol: 'SKYT', pattern_result: '{"symbol":"SKYT","link":"https://www.tradingview.c…":783781.4569536424,"Value":9.244304631719528}}}}', parent: {…}}57: {vid: 550, id: 'DATA_2025-10-21', symbol: 'PTGX', pattern_result: '{"symbol":"PTGX","link":"https://www.tradingview.c…":967268.2119205298,"Value":44.28738400794023}}}}', parent: {…}}58: {vid: 550, id: 'DATA_2025-10-21', symbol: 'ZVRA', pattern_result: '{"symbol":"ZVRA","link":"https://www.tradingview.c…:500988.07947019866,"Value":8.193145666690851}}}}', parent: {…}}59: {vid: 550, id: 'DATA_2025-10-21', symbol: 'EYPT', pattern_result: '{"symbol":"EYPT","link":"https://www.tradingview.c…":860925.8278145696,"Value":7.180132455383705}}}}', parent: {…}}60: {vid: 550, id: 'DATA_2025-10-21', symbol: 'SPHR', pattern_result: '{"symbol":"SPHR","link":"https://www.tradingview.c…":814081.4569536424,"Value":37.57701981146604}}}}', parent: {…}}61: {vid: 550, id: 'DATA_2025-10-21', symbol: 'GDOT', pattern_result: '{"symbol":"GDOT","link":"https://www.tradingview.c…":808876.1589403973,"Value":9.111324480827282}}}}', parent: {…}}62: {vid: 550, id: 'DATA_2025-10-21', symbol: 'VBTX', pattern_result: '{"symbol":"VBTX","link":"https://www.tradingview.c…":389873.178807947,"Value":25.635297952108825}}}}', parent: {…}}63: {vid: 550, id: 'DATA_2025-10-21', symbol: 'XMTR', pattern_result: '{"symbol":"XMTR","link":"https://www.tradingview.c…69,"Volume":667500,"Value":31.321225235793765}}}}', parent: {…}}64: {vid: 550, id: 'DATA_2025-10-21', symbol: 'REVG', pattern_result: '{"symbol":"REVG","link":"https://www.tradingview.c…":700837.7483443709,"Value":34.20099341790408}}}}', parent: {…}}65: {vid: 550, id: 'DATA_2025-10-21', symbol: 'ACLS', pattern_result: '{"symbol":"ACLS","link":"https://www.tradingview.c…":656126.4900662252,"Value":62.67582768320248}}}}', parent: {…}}66: {vid: 550, id: 'DATA_2025-10-21', symbol: 'NEGG', pattern_result: '{"symbol":"NEGG","link":"https://www.tradingview.c…:239470.46357615895,"Value":7.990993379757106}}}}', parent: {…}}67: {vid: 550, id: 'DATA_2025-10-21', symbol: 'BLBD', pattern_result: '{"symbol":"BLBD","link":"https://www.tradingview.c…e":589811.2582781457,"Value":37.9930462110911}}}}', parent: {…}}68: {vid: 550, id: 'DATA_2025-10-21', symbol: 'TBBK', pattern_result: '{"symbol":"TBBK","link":"https://www.tradingview.c…511872.84768211923,"Value":53.526821338577776}}}}', parent: {…}}69: {vid: 550, id: 'DATA_2025-10-21', symbol: 'MEG', pattern_result: '{"symbol":"MEG","link":"https://www.tradingview.co…69,"Volume":534900,"Value":18.294635779020798}}}}', parent: {…}}length: 70[[Prototype]]: Array(0)
+search-engine.service.ts:86 what sma-long breakout
+search-engine.service.ts:90 what sma-long breakout
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search-engine.service.ts:42 KEY: support-candle
+search-engine.service.ts:42 KEY: Date
+search-engine.service.ts:97 SEARCH RESULT: false
+search.component.ts:20 []

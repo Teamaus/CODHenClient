@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ConfigurationComponent } from '../configuration/configuration.component';
+
 import { PatternDirective } from "../pattern.directive";
 import { StockListComponent } from "../stock-list/stock-list.component";
 import { ExpandCollapseComponent } from "../expand-collapse/expand-collapse.component";
@@ -20,22 +20,7 @@ import { IPattern } from '../contracts/pattern.interface';
   styleUrl: './stock-list-page.component.css',
   
 })
-export class StockListPageComponent implements IConfiguration {
-  @ViewChild(CONFIGURATION) configuration?:IConfiguration
-  get patterns():IPattern[]
-  {
-      let retval:IPattern[] = [] 
-      if (this.configuration)
-        retval =  this.configuration.patterns
-      return retval 
-
-  }
-  /*
-  get watchList:IWatchList{
-    if (this.configuration){
-      this.configuration.
-    }  
-  }*/
+export class StockListPageComponent  {
   
   
 

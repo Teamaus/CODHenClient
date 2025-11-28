@@ -1,0 +1,19 @@
+<details class="panel" [open]="toggleOpen()">
+        <summary class="summary">
+            <span class="h2">{{ pattern().title }}</span>
+            <span class="chev" aria-hidden="true">▾</span>
+          </summary>
+          <div class="content">
+            <ul>
+      <li *ngFor="let st of pattern().stocks">
+        <label>
+          <input type="checkbox" />
+          <a  [href]="st.url" target="_blank" rel="noopener">{{ st.symbol }}</a>
+          – {{ st.note }}
+        </label>
+        <button class="btn">googlesheet report</button>
+      
+      </li>
+    </ul>
+          </div>
+</details>

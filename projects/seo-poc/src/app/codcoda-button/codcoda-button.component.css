@@ -1,0 +1,66 @@
+
+button.light
+{
+	display: inline-flex;
+	padding: 4px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+	background-color: #0b9981;
+	color:#0B9981;;
+	font-family: Roboto;
+	font-size: 13.714px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	color:#0B9981;;
+	border: 2px solid #79aea6 ;
+	border-radius: 8px;
+	background: #fff
+}
+button.dark {
+	display: inline-flex;
+	padding: 4px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+	background-color: #0b9981;
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 13.714px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	color:white;
+	border: 2px solid #79aea6 ;
+	border-radius: 8px;
+	background: #0B9981;
+	
+}
+button.dark:hover
+{
+	display: inline-flex;
+	padding: 4px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+	border-radius: 8px;
+	background: #0C7765;
+} 
+button.dark:active{
+
+	border: 2px solid #3DC3AC;
+	background: #0B9981;
+}
+svg.light
+{
+	stroke: #0B9981;
+      stroke-width: 1.5;
+      transition: stroke 0.2s ease;
+}
+svg.dark
+{
+	stroke: #FFF;
+      stroke-width: 1.5;
+      transition: stroke 0.2s ease;
+}

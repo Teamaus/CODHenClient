@@ -1,0 +1,154 @@
+:root {
+  --clr-border: #d1d5db;        /* default gray */
+  --clr-border-hover: #86efac;  /* light green */
+  --clr-border-selected: #22c55e; /* darker green */
+  --clr-bg: #ffffff;
+  --clr-bg-hover: #f0fdf4;      /* very light mint */
+  --clr-bg-selected: #dcfce7;   /* green-100 */
+  --clr-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --clr-shadow-hover: 0 3px 8px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --transition: all 0.2s ease;
+}
+
+/* Base card */
+.trade-card {
+  display:grid;
+  grid-template-rows: repeat(3,100px);
+  grid-template-columns: (1fr,1fr,1fr,1fr);
+ 
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  box-shadow: var(--clr-shadow);
+  padding: 16px;
+  transition: var(--transition);
+  max-width: 602px;  /* or any size you want */
+}
+.buttons-row
+{
+  display:flex;
+ 
+  padding:20px;
+}
+details[open] summary {
+  display: none;
+}
+.stock-card
+{
+  border: 2px solid #15803d;
+  max-width:500px;
+  max-height: 300px;
+  padding: 5px 15px 15px 15px;  
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* spacing between title → info → button */}
+
+.stock-card.selected {
+  border: 3px solid #166534;     /* thicker border */
+  background-color: #e7f3e9;     /* optional soft highlight */
+}
+
+.stock-card:hover
+{
+  background-color: #f0f0f0;
+}
+.stock-card:has(codcoda-button:hover):hover {
+  background-color: transparent;   /* reset */
+}
+.stock-card.selected:has(codcoda-button:hover):hover {
+   background-color: #e7f3e9;     /* reset */
+}
+
+.stock-card .stock-row
+{
+    display:flex ;
+    margin-left:40px;
+    gap:5px
+}
+.stock-field{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between; 
+   margin-right: 40px; ;
+   }
+
+/* Hover state */
+.trade-card:hover {
+  background: var(--clr-bg-hover);
+  border-color: var(--clr-border-hover);
+  box-shadow: var(--clr-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Selected state */
+.trade-card.is-selected {
+  background: var(--clr-bg-selected);
+  border-color: var(--clr-border-selected);
+  box-shadow: 0 4px 10px rgba(34,197,94,0.25);
+}
+
+/* Optional: when selected + hovered */
+.trade-card.is-selected:hover {
+  background: #bbf7d0; /* slightly deeper tint */
+  border-color: var(--clr-border-selected);
+}
+
+/* Checkbox accent color */
+.trade-card input[type="checkbox"] {
+  accent-color: var(--clr-border-selected);
+}
+
+/* Buttons inside card */
+.trade-card .btn {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition);
+}
+
+.trade-card .btn:hover {
+  border-color: #9ca3af;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.trade-card .btn-primary {
+  background: #16a34a;
+  color: #fff;
+  border-color: #16a34a;
+}
+
+.trade-card .btn-primary:hover {
+  background: #15803d;
+}
+
+/* Typography */
+.trade-card .ticker {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.trade-card .value-pos {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.trade-card .value-neg {
+  color: #ef4444;
+  font-weight: 600;
+}
+.stock-header
+ {
+  margin: 0px;
+  color: #15803d;
+  font-size: 24px;
+  font-weight: 600;
+}
+

@@ -1,0 +1,19 @@
+.search-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto; /* push to the right side */
+}
+
+.search-input {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-family: inherit;
+  font-size: 14px;
+}
+.search-input:focus {
+  border-color: #f59e0b;
+  outline: none;
+  box-shadow: 0 0 0 2px #fde68a;
+}

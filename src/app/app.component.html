@@ -1,1 +1,17 @@
-<stock-list></stock-list>
+<configuration #patterns_ref="configuration">
+		<codcoda-search>
+			
+		</codcoda-search>
+		<pattern *ngFor="let pattern of patterns_ref.data()" [pattern]="pattern">
+			
+		<div>
+		
+		<expand-collapse #expand_collapse="expand-collapse">
+			{{pattern.pattern}},{{pattern.window}},{{pattern.id}}
+			<stock-list *ngIf="expand_collapse.state=='expand'" [pattern]="pattern" ></stock-list>
+		</expand-collapse>
+		</div>
+		</pattern>
+	
+</configuration>
+

@@ -1,0 +1,19 @@
+<details>
+<summary>
+	<stock-symbol [symbol]="stock().symbol" [selected]="isSelected()"></stock-symbol>	
+</summary>
+<div class="stock-card" (click)="toggleSelect()" [class.selected]="isSelected()">
+<stock-symbol [symbol]="stock().symbol" [selected]="isSelected()"></stock-symbol>
+<div class="stock-row">
+	<span class="stock-field"><stock-field label="Entry:" [value]="stock().entry" [change]="'positive'"></stock-field></span>
+	<span class="stock-field">Stop loss: {{stock().stop_loss}}</span>
+	<span class="stock-field">Target: {{stock().target}}</span>
+	<span class="stock-field">RR: {{stock().rr}}</span>
+
+</div>
+<div class="buttons-row">
+	<codcoda-button style="grid-row:1;grid-column:2" >Trading-View</codcoda-button>
+</div>
+
+</div>
+</details>

@@ -1,0 +1,5 @@
+AAPL
+BABA
+C
+QQQ
+VST
