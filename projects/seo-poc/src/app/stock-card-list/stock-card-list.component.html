@@ -1,14 +1,10 @@
-<details>
-	<summary>
-		<div class="stock-card-list">
-		<div *ngFor="let stock of first_stocks()">
-			<codcoda-stock-card [stock]="stock"></codcoda-stock-card>
-		</div>
+	<div (click)="toggle()">
+		<h1 class="pattern" >{{pattern.pattern}} {{SelectionMessage()}}</h1>
+		<codcoda-collapse-expand></codcoda-collapse-expand>
 	</div>
-	</summary>
 	<div class="stock-card-list">
-		<div *ngFor="let stock of stocks()">
-			<codcoda-stock-card [stock]="stock"></codcoda-stock-card>
+		<div *ngFor="let stock of filtered_stocks()">
+				<codcoda-stock-card [stock]="stock" ></codcoda-stock-card>
 		</div>
 	</div>
-</details>
+

@@ -1,0 +1,58 @@
+details {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  width: 350px;
+  font-family: system-ui, sans-serif;
+  position: relative;
+}
+
+/* Remove default marker */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ----- SUMMARY (expand button) ------ */
+
+summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+summary svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Hide summary when open */
+details[open] summary {
+  display: none;
+}
+
+/* ----- COLLAPSE ICON INSIDE DETAILS ------ */
+
+.collapse-icon {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  cursor: pointer;
+  display: none; /* hidden when closed */
+}
+
+details[open] .collapse-icon {
+  display: block; /* visible only when open */
+}
+
+.collapse-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Optional content styling */
+.content {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #eee;
+}

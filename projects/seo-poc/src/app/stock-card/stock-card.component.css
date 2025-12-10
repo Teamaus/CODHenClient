@@ -11,41 +11,39 @@
   --transition: all 0.2s ease;
 }
 
-/* Base card */
-.trade-card {
-  display:grid;
-  grid-template-rows: repeat(3,100px);
-  grid-template-columns: (1fr,1fr,1fr,1fr);
- 
-  background: var(--clr-bg);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius);
-  box-shadow: var(--clr-shadow);
-  padding: 16px;
-  transition: var(--transition);
-  max-width: 602px;  /* or any size you want */
-}
 .buttons-row
 {
   display:flex;
  
   padding:20px;
 }
+details > summary {
+  list-style: none; /* Firefox */
+}
+
+details > summary::-webkit-details-marker {
+  display: none;    /* Chrome/Safari */
+}
+
+details > summary::marker {
+  content: "";      /* Safari newer versions */
+}
+
 details[open] summary {
   display: none;
 }
-.stock-card
+details[open] .stock-card
 {
   border: 2px solid #15803d;
-  max-width:500px;
-  max-height: 300px;
+  width:500px;
+  height: 150px;
   padding: 5px 15px 15px 15px;  
   border-radius: 6px;
   display: flex;
   flex-direction: column;
-  gap: 20px; /* spacing between title → info → button */}
+  gap: 10px; /* spacing between title → info → button */}
 
-.stock-card.selected {
+.stock-card .stock-symbol.btn-primary {
   border: 3px solid #166534;     /* thicker border */
   background-color: #e7f3e9;     /* optional soft highlight */
 }
@@ -57,8 +55,25 @@ details[open] summary {
 .stock-card:has(codcoda-button:hover):hover {
   background-color: transparent;   /* reset */
 }
+.stock-card.selected:hover
+{
+  background-color: #f0f0f0;
+}
+
 .stock-card.selected:has(codcoda-button:hover):hover {
-   background-color: #e7f3e9;     /* reset */
+   background-color:transparent /* #e7f3e9;     /* reset */
+}
+.stock-card.selected{
+  border-radius: 10px;
+  border: 1px solid #0B9981;
+  background: rgba(0, 255, 202, 0.07);
+}
+details .stock-card-summary.selected
+{
+  border-radius: 10px;
+  
+  background: rgba(0, 255, 202, 0.2);
+  
 }
 
 .stock-card .stock-row

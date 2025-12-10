@@ -1,33 +1,53 @@
-import { Component, input, model } from '@angular/core';
+import { Component, ElementRef, EventEmitter, forwardRef, HostListener, Input, input, model, ModelSignal, Output, Signal, ViewChild } from '@angular/core';
 import { CodcodaButtonComponent } from '../codcoda-button/codcoda-button.component';
 import { StockFieldComponent } from '../stock-field/stock-field.component';
 import { StockSymbolComponent } from '../stock-symbol/stock-symbol.component';
 import { StockDTO } from '../contracts/stock-dto';
+import { StockSentenceComponent } from '../stock-sentence/stock-sentence.component';
+import { ICOLLAPSE, ICollapse, ICOLLAPSE_EXPAND, ICollapseExpand } from '../contracts/icollapse-expand';
+import { NgFor, NgForOf } from '@angular/common';
+import { CollapseExpandComponent } from "../collapse-expand/collapse-expand.component";
+import { StockDetailsDirective } from '../stock-details.directive';
+import { StockCardViewModel } from '../contracts/stock-card-vm';
 
 @Component({
   selector: 'codcoda-stock-card',
-  imports: [CodcodaButtonComponent,StockFieldComponent,StockSymbolComponent],
+  imports: [CodcodaButtonComponent, StockFieldComponent, StockSymbolComponent, CollapseExpandComponent,StockDetailsDirective],
   templateUrl: './stock-card.component.html',
-  styleUrl: './stock-card.component.css'
+  styleUrl: './stock-card.component.css',
+ 
+
 })
 export class StockCardComponent {
-  stock= input<StockDTO>({} as StockDTO)
+  @ViewChild("details") details?:ElementRef<HTMLDetailsElement>
+  @Input() stock:StockCardViewModel = {} as StockCardViewModel
   isSelected = model<boolean>(false)
+  @Output() selection = new EventEmitter() 
+  //@ViewChild(ICOLLAPSE_EXPAND) ce?:ICollapseExpand
+  toggleSelect(event:Event){
+    event.stopPropagation()
+    this.stock.selected = !this.stock.selected
+    if (this.selection)
+    {
+        this.selection.emit() 
+    }
+  }
+  collapse(){
+    console.log("COLLAPSE")
+    if (this.stock)
+    {
+      this.stock.open = false  
+    }
+    
+  }
+  toggle(event:Event){
   
-  toggleSelect(){
-     this.isSelected.set(!this.isSelected());
+    if (this.details)
+    {
+        this.stock.open = this.details.nativeElement.open
+    }
   }
-  Collapse(event: MouseEvent){
-    event.stopPropagation(); // so the summary / card click doesn't re-toggle it
-
-    const target = event.target as HTMLElement;
-    const details = target.closest('details') as HTMLDetailsElement | null;
-
-    if (details) {
-      details.open = false;  // ⬅️ closes the <details> directly
-  }
-   
-  }
-
+  
+  
 
 }

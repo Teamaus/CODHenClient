@@ -1,2 +1,5 @@
 
-<codcoda-stock-card-list [stocks]="stocks"></codcoda-stock-card-list>
+
+<codcoda-stock-card-list *ngFor="let pattern of patterns" [pattern]="pattern" (selected)="selectPattern(pattern)"></codcoda-stock-card-list>
+
+<!--<app-test-ec></app-test-ec>-->

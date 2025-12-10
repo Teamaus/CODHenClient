@@ -1,0 +1,35 @@
+
+<span 
+  class="collapse-icon" 
+  
+  
+>
+  <svg *ngIf="state()=='expanded'"
+     
+    width="14" height="14" 
+    viewBox="0 0 24 24"
+  >
+    <path 
+      d="M6 15l6-6 6 6" 
+      fill="none" 
+      stroke="#6b7280" 
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+
+   <svg *ngIf="state()=='collapsed'" 
+   class="icon-expanded" 
+   width="14" height="14" 
+   viewBox="0 0 24 24">
+        <path 
+          d="M6 9l6 6 6-6" 
+          fill="none" 
+          stroke="#6b7280" 
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+</span>

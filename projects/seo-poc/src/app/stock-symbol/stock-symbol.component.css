@@ -5,3 +5,14 @@
   font-size: 24px;
   font-weight: 600;
 }
+.stock-symbol:hover
+{
+  cursor:pointer
+}
+.stock-symbol.open:hover
+{
+  cursor:default
+}
+
+
+ 
