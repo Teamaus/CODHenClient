@@ -5,14 +5,19 @@ import { StockSymbolComponent } from '../stock-symbol/stock-symbol.component';
 import { StockDTO } from '../contracts/stock-dto';
 import { StockSentenceComponent } from '../stock-sentence/stock-sentence.component';
 import { ICOLLAPSE, ICollapse, ICOLLAPSE_EXPAND, ICollapseExpand } from '../contracts/icollapse-expand';
-import { NgFor, NgForOf } from '@angular/common';
+import { CommonModule, NgFor, NgForOf } from '@angular/common';
 import { CollapseExpandComponent } from "../collapse-expand/collapse-expand.component";
 import { StockDetailsDirective } from '../stock-details.directive';
 import { StockCardViewModel } from '../contracts/stock-card-vm';
 
 @Component({
   selector: 'codcoda-stock-card',
-  imports: [CodcodaButtonComponent, StockFieldComponent, StockSymbolComponent, CollapseExpandComponent,StockDetailsDirective],
+  imports: [CommonModule,
+            CodcodaButtonComponent, 
+            StockFieldComponent, 
+            StockSymbolComponent, 
+            CollapseExpandComponent,
+            StockDetailsDirective],
   templateUrl: './stock-card.component.html',
   styleUrl: './stock-card.component.css',
  
@@ -25,6 +30,7 @@ export class StockCardComponent {
   @Output() selection = new EventEmitter() 
   //@ViewChild(ICOLLAPSE_EXPAND) ce?:ICollapseExpand
   toggleSelect(event:Event){
+    
     event.stopPropagation()
     this.stock.selected = !this.stock.selected
     if (this.selection)
@@ -33,7 +39,7 @@ export class StockCardComponent {
     }
   }
   collapse(){
-    console.log("COLLAPSE")
+      
     if (this.stock)
     {
       this.stock.open = false  
@@ -41,13 +47,37 @@ export class StockCardComponent {
     
   }
   toggle(event:Event){
-  
+    
     if (this.details)
     {
         this.stock.open = this.details.nativeElement.open
     }
   }
+  tabRef: Window | null = null;
+
+TradingView() {
+  const url = `https://www.tradingview.com/symbols/${this.stock.symbol}`;
+
+  // If already open and not closed -> focus it
+  if (this.tabRef && !this.tabRef.closed) {
+    this.tabRef.focus();
+    return;
+  }
+
+  // Open (must be called from a user click)
+  const name = `codcoda_${this.stock.symbol}`; // no spaces
+  this.tabRef = window.open(url, name);
+
+  if (!this.tabRef) {
+    alert('Popup blocked (or browser refused a handle). Please allow popups for this site.');
+    return;
+  }
   
+
+  // optional
+  this.tabRef.focus();
+}
+
   
 
 }

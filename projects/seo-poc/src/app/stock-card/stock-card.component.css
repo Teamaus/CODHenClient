@@ -79,14 +79,14 @@ details .stock-card-summary.selected
 .stock-card .stock-row
 {
     display:flex ;
-    margin-left:40px;
+    margin-left:10px;
     gap:5px
 }
 .stock-field{
     display:flex;
     flex-direction: column;
     justify-content: space-between; 
-   margin-right: 40px; ;
+   margin-right: 10px; ;
    }
 
 /* Hover state */

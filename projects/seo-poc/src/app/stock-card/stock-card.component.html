@@ -1,5 +1,7 @@
 <details [open]="stock.open" (toggle)="toggle($event)" #details>
+  
 <summary class="stock-card-summary" [class.selected]="stock.selected">
+  
   <stock-symbol [symbol]="stock.symbol" [selected]="stock.selected"></stock-symbol>	
 </summary>
 <span>
@@ -11,14 +13,16 @@
   <codcoda-collapse-expand></codcoda-collapse-expand>
   <div class="stock-row">
     <span class="stock-field"><stock-field label="Entry:" [value]="stock.entry" [change]="'positive'"></stock-field></span>
-    <span class="stock-field">Stop loss: {{stock.stop_loss}}</span>
-    <span class="stock-field">Target: {{stock.target}}</span>
-    <span class="stock-field">RR: {{stock.rr}}</span>
+    <span class="stock-field"><stock-field label="Stop:" [value]="stock.stop_loss"></stock-field></span>
+    <span class="stock-field"><stock-field label="MA150:" [value]="stock.sma_150"></stock-field></span>
+    <span class="stock-field"><stock-field label="Support:" [value]="stock.support"></stock-field></span>
+    <span class="stock-field"><stock-field label="Rank:" [value]="stock.rank"></stock-field></span>
   </div>
   <div class="buttons-row">
-      <codcoda-button style="grid-row:1;grid-column:2" >Trading-View</codcoda-button>
+      <codcoda-button style="grid-row:1;grid-column:2" (clickEvent)="TradingView()" >Trading-View</codcoda-button>
   </div>
 </div>
 </span>
+
 </details>
 

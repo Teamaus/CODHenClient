@@ -1,0 +1,63 @@
+<div class="chat">
+  <header class="chat__header">
+    <div class="chat__title">
+      <div class="dot"></div>
+      <div>
+        <div class="h1">API Chat , entities</div>
+        
+      </div>
+    </div>
+
+    <div class="chat__controls">
+      <label class="pill">
+        <span>Customer ID:</span>
+        <input [(ngModel)]="initialParams.CustomerID" placeholder="e.g. customerID " />
+      </label>
+
+      <button class="btn btn--ghost" (click)="clear()" type="button">Clear</button>
+    </div>
+  </header>
+
+  <main class="chat__messages" role="log" aria-live="polite">
+    <div
+      class="msg"
+      *ngFor="let m of messages"
+      [class.msg--user]="m.role === 'user'"
+      [class.msg--assistant]="m.role === 'assistant'"
+      [class.msg--system]="m.role === 'system'"
+    >
+      <div class="msg__meta">
+        <span class="role">{{ m.role }}</span>
+        <span class="time">{{ m.createdAt | date:'HH:mm' }}</span>
+        <span class="role">{{m.initialParams.CustomerID}}</span>
+      </div>
+      
+      <div class="msg__bubble">
+        <pre class="msg__text">{{ m.text }}</pre>
+        <button (click)="toEdit(m.text)"></button>
+      </div>
+    </div>
+
+    <div class="typing" *ngIf="isSending">
+      <span class="typing__dot"></span>
+      <span class="typing__dot"></span>
+      <span class="typing__dot"></span>
+    </div>
+  </main>
+
+  <footer class="chat__composer">
+    <textarea
+      [(ngModel)]="prompt"
+      (keydown)="onKeydown($event)"
+      class="input"
+      placeholder="Type a prompt… (Enter to send, Shift+Enter for newline)"
+      rows="3"
+    ></textarea>
+
+    <div class="chat__actions">
+      <button class="btn" [disabled]="isSending || !prompt.trim()" (click)="send()" type="button">
+        {{ isSending ? 'Sending…' : 'Send' }}
+      </button>
+    </div>
+  </footer>
+</div>

@@ -549,6 +549,96 @@
           }
         }
       }
+    },
+    "ai-chat": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ai-chat",
+      "sourceRoot": "projects/ai-chat/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/ai-chat",
+            "index": "projects/ai-chat/src/index.html",
+            "browser": "projects/ai-chat/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ai-chat/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/ai-chat/public"
+              }
+            ],
+            "styles": [
+              "projects/ai-chat/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "ai-chat:build:production"
+            },
+            "development": {
+              "buildTarget": "ai-chat:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ai-chat/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/ai-chat/public"
+              }
+            ],
+            "styles": [
+              "projects/ai-chat/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
+    
   }
 }

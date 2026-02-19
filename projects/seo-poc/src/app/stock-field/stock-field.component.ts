@@ -1,9 +1,9 @@
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
 export type CHANGE = 'positive' | 'negative' | 'neutral' ;
 @Component({
   selector: 'stock-field',
-  imports: [NgClass],
+  imports: [NgClass,CommonModule],
   templateUrl: './stock-field.component.html',
   styleUrl: './stock-field.component.css'
 })

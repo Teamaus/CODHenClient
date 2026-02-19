@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, input } from '@angular/core';
+import { Component, EventEmitter, input, Output } from '@angular/core';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { Component, EventEmitter, input } from '@angular/core';
 })
 export class CodcodaButtonComponent {
   theme = input<string>("dark")
-  clickEvent = new EventEmitter() 
+  @Output() clickEvent = new EventEmitter() 
   clicked(event: MouseEvent){
       event.stopPropagation()
       this.clickEvent.emit() 
