@@ -31,13 +31,15 @@ export class PatternsService {
 
 
 
-  extractData(resp:any[])
+  extractData(resp:any)
   { 
       console.log("Before filtering",resp)
-      const ret = resp.filter(itemresp=>itemresp.pattern=="sma-long") 
-      const pattern_data = ret[0].pattern_data
+      
+      //const ret = resp.filter(itemresp=>itemresp.pattern==spattern) 
+      console.log("RESP2:",resp)
+      const pattern_data = resp.pattern_data
       const stocks = pattern_data.map((item:any)=>this.extractStock(item))
-      const pattern ={pattern:"sma-long",stocks:[...stocks],open:signal<boolean>(false)}
+      const pattern ={pattern:resp.pattern,stocks:[...stocks],open:signal<boolean>(false)}
       
       //const pattern = {pattern:ret[0].patter}
      console.log("RET:",stocks)
@@ -46,12 +48,22 @@ export class PatternsService {
   }
   constructor(private http:HttpClient) { 
       
-      this.http.get(`${url}?id=DATA_2026-01-13`)
+      this.http.get(`${url}?id=DATA_2026-01-13`, {
+  withCredentials: true
+})
       .subscribe(
         resp=>
-          { const pattern = this.extractData(resp as any[])
-            console.log("Pattern:",pattern)
-            this.patterns.set([pattern])
+          { 
+            console.log("RESP:",resp)
+            let ret:any[] = [] 
+            for(const r of resp as any[])
+            {
+              const pattern = this.extractData(r)
+              console.log("Pattern:",pattern)
+              ret  = [...ret,pattern]
+              
+            }
+            this.patterns.set(ret)
           }
       )
       /*const stocks:StockCardViewModel[] = [{

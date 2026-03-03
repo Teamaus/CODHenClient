@@ -1,0 +1,36 @@
+<div class="rg">
+  <div class="rg__header">
+    <div
+      class="rg__cell rg__cell--head"
+      *ngFor="let c of columns"
+      [style.width]="c.width || 'auto'"
+    >
+      {{ c.header }}
+    </div>
+  </div>
+
+  <div class="rg__body" role="listbox" [attr.aria-multiselectable]="multi">
+    <button
+      type="button"
+      class="rg__row"
+      *ngFor="let r of rows; let i = index"
+      [class.rg__row--selected]="isSelected(r)"
+      (click)="onRowClick($event, r, i)"
+      role="option"
+      [attr.aria-selected]="isSelected(r)"
+    >
+      <div
+        class="rg__cell"
+        *ngFor="let c of columns"
+        [style.width]="c.width || 'auto'"
+        [title]="r[c.key] ?? ''"
+      >
+        {{ r[c.key] }}
+      </div>
+    </button>
+
+    <div class="rg__empty" *ngIf="rows.length === 0">
+      No rows
+    </div>
+  </div>
+</div>

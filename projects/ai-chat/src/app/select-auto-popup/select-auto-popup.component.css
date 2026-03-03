@@ -1,0 +1,143 @@
+/* Backdrop overlays only the container you place it in */
+.sp__backdrop {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  z-index: 50;
+}
+
+/* Popup panel: same "glassy" card vibe */
+.sp {
+  width: min(520px, calc(100% - 28px));
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  color: #e8eefc;
+  overflow: hidden;
+}
+
+.sp__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sp__title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.sp__x {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.sp__x:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.sp__body {
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.sp__radio {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.sp__radio input {
+  margin-top: 3px;
+  accent-color: #7c5cff;
+}
+
+.sp__hint {
+  font-size: 12px;
+  color: rgba(232, 238, 252, 0.68);
+  margin-top: 2px;
+}
+
+.sp__row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.sp__row--disabled {
+  opacity: 0.55;
+}
+
+.sp__label {
+  font-size: 12px;
+  color: rgba(232, 238, 252, 0.75);
+}
+
+.sp__select {
+  width: 100%;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e8eefc;
+  outline: none;
+}
+
+.sp__select:focus {
+  border-color: rgba(124, 92, 255, 0.55);
+  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.18);
+}
+
+.sp__foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.02);
+}
+
+/* Buttons: compatible with your existing style (glassy, rounded) */
+.sp__btn {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(124, 92, 255, 0.35);
+  color: #e8eefc;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.sp__btn:hover {
+  background: rgba(124, 92, 255, 0.45);
+}
+
+.sp__btn--ghost {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sp__btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.10);
+}

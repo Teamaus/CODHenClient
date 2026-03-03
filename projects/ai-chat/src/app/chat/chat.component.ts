@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ChatMessage } from './chat.models';
 import { ChatService } from './chat.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SelectAutoPopupComponent } from '../select-auto-popup/select-auto-popup.component';
 
 function uid() {
   return Math.random().toString(16).slice(2) + Date.now().toString(16);
@@ -12,12 +13,13 @@ function uid() {
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,SelectAutoPopupComponent],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
   
 })
 export class ChatComponent {
+  popup_open = false
   initialParams = {CustomerID:'C0001'};
   prompt = '';
 
@@ -49,7 +51,13 @@ export class ChatComponent {
       messages: this.messages.map(m => ({ role: m.role, content: m.text })),
     };
     this.chat.send(req).subscribe({
-      next: (res) => {
+      next: (res:any) => {
+        if (res["type"] && res["type"]=="ask" )
+        {
+            this.popup_open = true
+            this.isSending = false;
+            return 
+        }
         console.log('RECEIVED AT', Date.now(), res);
         const botMsg: ChatMessage = { id: uid(), role: 'assistant', text: JSON.stringify(res.content), createdAt: Date.now(),initialParams:{...this.initialParams} };
         this.messages = [...this.messages, botMsg];

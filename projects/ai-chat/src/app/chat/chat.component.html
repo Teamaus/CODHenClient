@@ -1,5 +1,6 @@
 <div class="chat">
   <header class="chat__header">
+
     <div class="chat__title">
       <div class="dot"></div>
       <div>
@@ -19,6 +20,7 @@
   </header>
 
   <main class="chat__messages" role="log" aria-live="polite">
+    
     <div
       class="msg"
       *ngFor="let m of messages"
@@ -37,7 +39,7 @@
         <button (click)="toEdit(m.text)"></button>
       </div>
     </div>
-
+    
     <div class="typing" *ngIf="isSending">
       <span class="typing__dot"></span>
       <span class="typing__dot"></span>
@@ -58,6 +60,9 @@
       <button class="btn" [disabled]="isSending || !prompt.trim()" (click)="send()" type="button">
         {{ isSending ? 'Sending…' : 'Send' }}
       </button>
+    </div>
+    <div>
+      <app-select-auto-popup [open]="popup_open"></app-select-auto-popup>
     </div>
   </footer>
 </div>

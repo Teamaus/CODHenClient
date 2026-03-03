@@ -12,7 +12,7 @@ export class ChatService {
     const lastUser = [...req.messages].reverse().find(m => m.role === 'user')?.content ?? '';
     
     const body = {"prompt":lastUser,"env_contracts":{"ENV_CONTRACTS":{"source_entities":["Customer"]}},initialParams:req.initialParams}
-    return this.http.post("http://localhost:3003/mcp",body,{headers : {"content-type":"application/json"}}).pipe(tap(resp=>console.log("RESP:",resp)), map((resp:any)=>{return {role:'assistant',content:resp.response}})) as Observable<ChatResponse>
+    return this.http.post("http://localhost:3003/mcp",body,{headers : {"content-type":"application/json"}}).pipe(tap(resp=>console.log("RESP:",resp)), map((resp:any)=>{return resp.type=="ask"?resp:{role:'assistant',content:JSON.stringify(JSON.parse(resp.resp).response),type:resp.type}})) as Observable<ChatResponse>
    
   }
 }

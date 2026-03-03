@@ -1,6 +1,10 @@
 	<div (click)="toggle()">
 		<h1 class="pattern" >{{pattern.pattern}} {{SelectionMessage()}}</h1>
-		<codcoda-collapse-expand></codcoda-collapse-expand>
+		<codcoda-collapse-expand *ngIf="largeList()"></codcoda-collapse-expand>
+		<button (click)="export_to_csv(false)">export all to csv</button>
+		<button (click)="export_to_csv(true)">export selected to csv</button>
+		
+
 	</div>
 	<div class="stock-card-list">
 		<div *ngFor="let stock of filtered_stocks()">

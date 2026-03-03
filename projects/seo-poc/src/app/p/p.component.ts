@@ -5,13 +5,16 @@ import { REQUEST } from '@nguniversal/express-engine/tokens';
 
 
 @Component({
-  selector: 'app-p',
+  selector: 'codcoda-page',
   imports: [],
   templateUrl: './p.component.html',
   styleUrl: './p.component.css'
 })
 export class PComponent {
- 
+  isLoggedIn():boolean
+  {
+    return true 
+  }
   constructor(private route:ActivatedRoute){
 
       console.log("ID:",this.route.snapshot.paramMap.get("pid"),this.route.snapshot.queryParamMap.get('x-render-context'))

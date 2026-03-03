@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CodcodaButtonComponent } from './codcoda-button/codcoda-button.component';
 import { StockCardComponent } from './stock-card/stock-card.component';
 import { StockCardListComponent } from './stock-card-list/stock-card-list.component';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { TestEcComponent } from './test-ec/test-ec.component';
 import { StockListComponent } from '../../../../src/app/stock-list/stock-list.component';
 import { PatternsService } from './patterns.service';
@@ -11,11 +11,12 @@ import { StockCardViewModel } from './contracts/stock-card-vm';
 import { Pattern } from './contracts/patterns';
 
 import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
   //imports: [TestEcComponent  ],
-  imports:[StockCardListComponent,NgForOf],
+  imports:[StockCardListComponent,NgForOf,LoginComponent,NgIf],
   providers:[PatternsService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -24,7 +25,11 @@ export class AppComponent {
   title = 'seo-poc';
   patterns:Pattern[] = [] 
   constructor(private patternsService:PatternsService){
-      effect (()=>this.patterns = this.patternsService.patterns())
+      effect (()=>{
+        this.patterns = this.patternsService.patterns()
+        console.log("PATTERNS:",this.patterns)
+
+      })
   }
   selectPattern(selectedPattern:Pattern)
   {

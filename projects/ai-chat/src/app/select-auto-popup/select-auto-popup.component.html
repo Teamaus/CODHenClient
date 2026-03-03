@@ -1,0 +1,39 @@
+<div class="sp__backdrop" *ngIf="open" (click)="close()">
+  <div class="sp" (click)="stop($event)">
+    <div class="sp__head">
+      <div class="sp__title">Choose stylesheet</div>
+      <button class="sp__x" type="button" (click)="close()">✕</button>
+    </div>
+
+    <div class="sp__body">
+      <label class="sp__radio">
+        <input type="radio" name="mode" value="auto" [(ngModel)]="mode" />
+        <span>
+          <b>Auto select</b>
+          <div class="sp__hint">Let the app decide.</div>
+        </span>
+      </label>
+
+      <label class="sp__radio">
+        <input type="radio" name="mode" value="manual" [(ngModel)]="mode" />
+        <span>
+          <b>Manual select</b>
+          <div class="sp__hint">Choose from the list.</div>
+        </span>
+      </label>
+
+      <div class="sp__row" [class.sp__row--disabled]="mode !== 'manual'">
+        <span class="sp__label">Stylesheet</span>
+
+        <select class="sp__select" [(ngModel)]="selectedId" [disabled]="mode !== 'manual'">
+          <option *ngFor="let o of options" [value]="o.id">{{ o.name }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="sp__foot">
+      <button class="sp__btn sp__btn--ghost" type="button" (click)="close()">Cancel</button>
+      <button class="sp__btn" type="button" (click)="apply()">Apply</button>
+    </div>
+  </div>
+</div>

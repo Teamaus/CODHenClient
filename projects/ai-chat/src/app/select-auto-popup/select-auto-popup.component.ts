@@ -1,0 +1,35 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+export type StylesheetMode = 'auto' | 'manual';
+
+@Component({
+  selector: 'app-select-auto-popup',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './select-auto-popup.component.html',
+  styleUrls: ['./select-auto-popup.component.css'],
+})
+export class SelectAutoPopupComponent {
+  @Input() open = false;
+
+  @Input() mode: StylesheetMode = 'auto';
+  @Input() selectedId = '';
+  @Input() options: Array<{ id: string; name: string }> = [];
+
+  @Output() closed = new EventEmitter<void>();
+  @Output() applied = new EventEmitter<{ mode: StylesheetMode; selectedId: string }>();
+
+  close() {
+    this.closed.emit();
+  }
+
+  apply() {
+    this.applied.emit({ mode: this.mode, selectedId: this.selectedId });
+  }
+
+  stop(e: MouseEvent) {
+    e.stopPropagation();
+  }
+}

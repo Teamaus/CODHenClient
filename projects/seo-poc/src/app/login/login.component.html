@@ -1,0 +1,15 @@
+<is-logged-on #logged_on="logged_on"></is-logged-on>
+<div style="text-align: center; margin-top: 80px;" *ngIf="!isLoggedOn">
+  <h2>Sign in to Your App</h2>
+
+  <!-- Google will render the button here -->
+  <div
+    #googleBtn
+    id="googleBtn"
+    style="margin-top: 20px; display: inline-block; min-width: 320px; min-height: 44px; border: 1px dashed red;"
+  ></div>
+
+  <p style="margin-top: 20px; color: gray; font-size: 14px;">
+    Use your Google account to continue
+  </p>
+</div>

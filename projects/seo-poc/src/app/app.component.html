@@ -1,5 +1,7 @@
 
-
-<codcoda-stock-card-list *ngFor="let pattern of patterns" [pattern]="pattern" (selected)="selectPattern(pattern)"></codcoda-stock-card-list>
+<app-login #login="app-login"></app-login>
+<ng-content  *ngIf="login.isLoggedOn">
+	<codcoda-stock-card-list *ngFor="let pattern of patterns" [pattern]="pattern" (selected)="selectPattern(pattern)"></codcoda-stock-card-list>
+</ng-content>
 
 <!--<app-test-ec></app-test-ec>-->
