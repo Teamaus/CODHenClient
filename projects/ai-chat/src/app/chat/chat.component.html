@@ -62,7 +62,7 @@
       </button>
     </div>
     <div>
-      <app-select-auto-popup [open]="popup_open"></app-select-auto-popup>
+      <app-select-auto-popup [open]="popup_open" (applied)="popup_apply($event)" (closed)="closed()"></app-select-auto-popup>
     </div>
   </footer>
 </div>

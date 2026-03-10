@@ -22,11 +22,13 @@ export class SelectAutoPopupComponent {
   @Output() applied = new EventEmitter<{ mode: StylesheetMode; selectedId: string }>();
 
   close() {
+    
     this.closed.emit();
   }
 
   apply() {
     this.applied.emit({ mode: this.mode, selectedId: this.selectedId });
+    this.close() 
   }
 
   stop(e: MouseEvent) {
