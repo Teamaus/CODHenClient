@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { ChatComponent } from './chat/chat.component';
+import { TestGridComponent } from './test-grid/test-grid.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ChatComponent],
+  imports: [ChatComponent,TestGridComponent],
   template: `
     <div class="shell">
       <app-chat></app-chat>
+      <!--<test-app-row-grid></test-app-row-grid>-->
     </div>
   `,
   styles: [`

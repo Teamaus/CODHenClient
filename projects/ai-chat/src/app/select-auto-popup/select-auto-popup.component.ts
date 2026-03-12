@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PopupService } from '../popup.service';
 
 export type StylesheetMode = 'auto' | 'manual';
 
@@ -20,14 +21,19 @@ export class SelectAutoPopupComponent {
 
   @Output() closed = new EventEmitter<void>();
   @Output() applied = new EventEmitter<{ mode: StylesheetMode; selectedId: string }>();
+  constructor(private popupService:PopupService)
+  {
 
+  }
   close() {
-    
+    this.popupService.popupClosed({ mode: this.mode, selectedId: this.selectedId })
     this.closed.emit();
   }
 
   apply() {
     this.applied.emit({ mode: this.mode, selectedId: this.selectedId });
+    
+
     this.close() 
   }
 

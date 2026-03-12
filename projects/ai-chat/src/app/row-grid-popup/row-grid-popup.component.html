@@ -1,0 +1,22 @@
+<div class="popup-backdrop">
+  <div class="popup">
+    <div class="popup__header">
+      <h2>{{ title }}</h2>
+    </div>
+
+    <div class="popup__body">
+      <app-row-grid
+        [rows]="rows"
+        [columns]="columns"
+        [idKey]="idKey"
+        [multi]="multi"
+        [(selectedIds)]="selectedIds">
+      </app-row-grid>
+    </div>
+
+    <div class="popup__footer">
+      <button type="button" class="btn btn--ghost" (click)="onCancel()">Cancel</button>
+      <button type="button" class="btn btn--primary" (click)="onDone()">Done</button>
+    </div>
+  </div>
+</div>

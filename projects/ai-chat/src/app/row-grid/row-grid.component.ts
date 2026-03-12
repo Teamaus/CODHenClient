@@ -1,7 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ResponseParserService } from '../response-parser.service';
 
 export type RowId = string | number;
+export type RowGridRow = Record<string, any>;
+export type RowGridColumn = {
+  key: string;
+  header: string;
+  width?: string;
+};
+
 
 @Component({
   selector: 'app-row-grid',
@@ -10,32 +18,26 @@ export type RowId = string | number;
   templateUrl: './row-grid.component.html',
   styleUrls: ['./row-grid.component.css'],
 })
-export class RowGridComponent<T extends Record<string, any>> {
-  @Input() rows: T[] = [];
-
-  /** Which fields to show, in order */
-  @Input() columns: Array<{ key: keyof T; header: string; width?: string }> = [];
-
-  /** Unique row id (defaults to "id") */
-  @Input() idKey: keyof T = 'id' as keyof T;
-
-  /** Enable multi selection (Ctrl/Cmd toggle, Shift range). Default true. */
+export class RowGridComponent{
+  @Input() resp:any
+  @Input() rows: RowGridRow[] = [];
+  @Input() columns: RowGridColumn[] = [];
+  @Input() idKey = 'id';
   @Input() multi = true;
-
-  /** Currently selected row IDs (controlled) */
   @Input() selectedIds: RowId[] = [];
-
-  /** Emits when selection changes */
   @Output() selectedIdsChange = new EventEmitter<RowId[]>();
 
   private lastAnchorIndex: number | null = null;
+  constructor(private respParser:ResponseParserService)
+  {
 
-  isSelected(row: T): boolean {
+  }
+  isSelected(row:RowGridRow): boolean {
     const id = row[this.idKey] as RowId;
     return this.selectedIds.includes(id);
   }
 
-  onRowClick(e: MouseEvent, row: T, index: number) {
+  onRowClick(e: MouseEvent, row: RowGridRow, index: number) {
     const id = row[this.idKey] as RowId;
 
     // Single-select mode

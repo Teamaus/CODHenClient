@@ -1,0 +1,9 @@
+<div>Selected: {{ selectedIds | json }}</div>
+<h1>here</h1>
+<app-row-grid
+  [rows]="products"
+  [columns]="productColumns"
+  [(selectedIds)]="selectedIds">
+</app-row-grid>
+<button (click)="Done()">Done</button>
+

@@ -5,10 +5,12 @@ import { ChatMessage } from './chat.models';
 import { ChatService } from './chat.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectAutoPopupComponent } from '../select-auto-popup/select-auto-popup.component';
-import { map, Observable, switchMap, tap } from 'rxjs';
+import { map, Observable, switchMap, take, tap } from 'rxjs';
 import { PopupService } from '../popup.service';
 import { ApiListService } from '../api-list.service';
 import { ResponseParserService } from '../response-parser.service';
+import { RowGridComponent } from '../row-grid/row-grid.component';
+import { RowGridPopupComponent } from '../row-grid-popup/row-grid-popup.component';
 
 //הבא את פירטי המשנים בתיקי הלקוח : מזהה, סוג
 function uid() {
@@ -18,7 +20,7 @@ function uid() {
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [CommonModule, FormsModule,SelectAutoPopupComponent],
+  imports: [CommonModule, FormsModule,SelectAutoPopupComponent,RowGridPopupComponent],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
   providers:[PopupService,ApiListService,ResponseParserService]
@@ -36,10 +38,14 @@ export class ChatComponent {
   ];
 
   isSending = false;
-
+  selectedIds:string[] = []
   constructor(private chat: ChatService,private cdr: ChangeDetectorRef,
     private popupService:PopupService,private apiListService:ApiListService
   ,private respParser:ResponseParserService) {}
+  onSelectionChanged(ids: string[]) {
+      this.selectedIds = ids;
+      console.log("Selected rows:", ids);
+  }
   clone(obj:any):any
     {
       return {...obj}
@@ -47,10 +53,13 @@ export class ChatComponent {
   api_continue(){
       alert("HERE...")
   }
+  
   handleManual(resp:any)
   {
+      
+      this.resp = resp 
       this.row_grid_open = true 
-
+      
 
 
   }
@@ -61,9 +70,12 @@ export class ChatComponent {
   ask$():Observable<any>{
     
     return this.chat.ask$.pipe(
+      take(1),
       switchMap(res=>this.open_popup$(res).pipe(
-        
-        map(applied=>[applied,res]))))
+        take(1),
+        map(applied=>[applied,res])))
+    )
+
   }
   open_popup$(res:any):Observable<any>{
     
@@ -93,21 +105,27 @@ export class ChatComponent {
       initialParams: this.initialParams,
       messages: this.messages.map(m => ({ role: m.role, content: m.text })),
     };
-    this.chat.sendRequest(req)
+    
     this.ask$()
     .subscribe(
-        ([applied,resp])=>{
+      {
+        next:([applied,resp])=>{
           
-          if (applied=="manual")
+          if (applied.mode=="manual")
           {
+
+             alert("MAN")
              this.handleManual(resp)
           }
           else
           {
+            alert("AUT")
             this.handleAuto(resp)
           }
 
-        }
+        },
+        complete:()=>alert("Completed")
+      }
     )
       
     
@@ -138,6 +156,7 @@ export class ChatComponent {
         this.isSending = false;
       },
     });
+    this.chat.sendRequest(req)
   }
   toEdit(text:string)
   {

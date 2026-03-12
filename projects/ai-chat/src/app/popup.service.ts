@@ -8,6 +8,6 @@ export class PopupService {
   popupClosed(applied:any)
   {
       this.popup$.next(applied)
-      this.popup$.complete() 
+      //this.popup$.complete() 
   }
 }

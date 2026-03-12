@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+export type  Manual = {type:string,key_id:string,columns:{key:string,header:string}[]}
 @Injectable({
   providedIn: 'root'
 })
@@ -26,4 +26,9 @@ export class ApiListService {
       
 
   }
+  getCurrentApi(current:string,apiList:any[]){
+     const currentApi = apiList.find(api=>api.api_name==current)
+     return currentApi 
+  }
+  
 }

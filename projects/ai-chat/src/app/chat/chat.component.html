@@ -61,8 +61,11 @@
         {{ isSending ? 'Sending…' : 'Send' }}
       </button>
     </div>
-    <div>
+    <div *ngIf="popup_open">
       <app-select-auto-popup [open]="popup_open" (applied)="popup_apply($event)" (closed)="closed()"></app-select-auto-popup>
+    </div>
+    <div *ngIf="row_grid_open">
+       <app-row-grid-popup [resp]="resp"></app-row-grid-popup>
     </div>
   </footer>
 </div>

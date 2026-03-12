@@ -25,8 +25,9 @@ export class ChatService {
       res=>{
         if (res.type=="ask")
         {
+          alert("Send Ask...")
           this._ask$.next(res)
-          this._ask$.complete()
+         // this._ask$.complete()
         }
         else
         {
