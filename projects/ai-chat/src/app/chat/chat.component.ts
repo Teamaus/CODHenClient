@@ -1,18 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { Component, ChangeDetectorRef, ViewChild, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChatMessage } from './chat.models';
 import { ChatService } from './chat.service';
-import { HttpClientModule } from '@angular/common/http';
 import { SelectAutoPopupComponent } from '../select-auto-popup/select-auto-popup.component';
-import { map, Observable, switchMap, take, takeUntil, tap } from 'rxjs';
+import { map, Observable, switchMap, take } from 'rxjs';
 import { PopupService } from '../popup.service';
 import { ApiListService } from '../api-list.service';
 import { ResponseParserService } from '../response-parser.service';
-import { RowGridComponent } from '../row-grid/row-grid.component';
 import { RowGridPopupComponent } from '../row-grid-popup/row-grid-popup.component';
 import { ManualDirective } from '../manual.directive';
 import { IManual } from '../contract/IManual';
+import { IPopupManager, POPUP_MANAGER } from '../contract/IPopup';
 
 //הבא את פירטי המשנים בתיקי הלקוח : מזהה, סוג
 function uid() {
@@ -44,7 +43,8 @@ export class ChatComponent {
   selectedIds:string[] = []
   constructor(private chat: ChatService,private cdr: ChangeDetectorRef,
     private popupService:PopupService,private apiListService:ApiListService
-  ,private respParser:ResponseParserService) {
+  ,private respParser:ResponseParserService
+  ,@Inject(POPUP_MANAGER)public popupManager:IPopupManager) {
      this.subscribeResponse()
   }
   onSelectionChanged(ids: string[]) {
@@ -65,7 +65,6 @@ export class ChatComponent {
   
   handleManual(resp:any)
   {
-      
       this.resp = resp 
       if (this.manual)
       {
@@ -92,11 +91,6 @@ export class ChatComponent {
            }
         )
       }
-
-
-      
-
-
   }
   handleAuto(resp:any)
   {

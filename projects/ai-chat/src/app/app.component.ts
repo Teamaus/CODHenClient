@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { ChatComponent } from './chat/chat.component';
 import { TestGridComponent } from './test-grid/test-grid.component';
+import { ManualSelectDirective } from './manual-select.directive';
+import { ChatPublisherDirective } from './chat-publisher.directive';
+import { PubSubDirective } from './pub-sub.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ChatComponent,TestGridComponent],
+  imports: [ChatComponent,ManualSelectDirective,ChatPublisherDirective,PubSubDirective],
   template: `
     <div class="shell">
-      <app-chat></app-chat>
+      <notification><app-chat></app-chat></notification>
       <!--<test-app-row-grid></test-app-row-grid>-->
     </div>
   `,

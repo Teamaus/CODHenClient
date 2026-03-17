@@ -40,13 +40,11 @@ export class ChatService {
         {
           
           this._ask$.next(res)
-         // this._ask$.complete()
         }
         else
         {
           console.log("RECEIVED ",res)
           this._resposne$.next(res)
-          //this._resposne$.complete() 
         }
       }
     )
@@ -79,7 +77,6 @@ export class ChatService {
    
 
   }
-
   private _ask$  = new Subject<any>()
   private _resposne$ = new Subject<any>() 
   get ask$():Observable<ChatResponse>{
