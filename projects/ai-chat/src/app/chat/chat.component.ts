@@ -1,16 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChatMessage } from './chat.models';
 import { ChatService } from './chat.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectAutoPopupComponent } from '../select-auto-popup/select-auto-popup.component';
-import { map, Observable, switchMap, take, tap } from 'rxjs';
+import { map, Observable, switchMap, take, takeUntil, tap } from 'rxjs';
 import { PopupService } from '../popup.service';
 import { ApiListService } from '../api-list.service';
 import { ResponseParserService } from '../response-parser.service';
 import { RowGridComponent } from '../row-grid/row-grid.component';
 import { RowGridPopupComponent } from '../row-grid-popup/row-grid-popup.component';
+import { ManualDirective } from '../manual.directive';
+import { IManual } from '../contract/IManual';
 
 //הבא את פירטי המשנים בתיקי הלקוח : מזהה, סוג
 function uid() {
@@ -20,13 +22,14 @@ function uid() {
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [CommonModule, FormsModule,SelectAutoPopupComponent,RowGridPopupComponent],
+  imports: [CommonModule, FormsModule,SelectAutoPopupComponent,RowGridPopupComponent,ManualDirective],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
   providers:[PopupService,ApiListService,ResponseParserService]
   
 })
 export class ChatComponent {
+  @ViewChild ('manual') manual?:IManual 
   popup_open = false
   row_grid_open = false 
   initialParams = {CustomerID:'C0001'};
@@ -41,7 +44,9 @@ export class ChatComponent {
   selectedIds:string[] = []
   constructor(private chat: ChatService,private cdr: ChangeDetectorRef,
     private popupService:PopupService,private apiListService:ApiListService
-  ,private respParser:ResponseParserService) {}
+  ,private respParser:ResponseParserService) {
+     this.subscribeResponse()
+  }
   onSelectionChanged(ids: string[]) {
       this.selectedIds = ids;
       console.log("Selected rows:", ids);
@@ -50,15 +55,45 @@ export class ChatComponent {
     {
       return {...obj}
     }
-  api_continue(){
-      alert("HERE...")
+  api_continue(resp:any){
+      
+      
+      this.chat.continueRequest(resp)
+
+      
   }
   
   handleManual(resp:any)
   {
       
       this.resp = resp 
-      this.row_grid_open = true 
+      if (this.manual)
+      {
+        this.manual.open()
+        this.manual.done$.pipe(take(1))
+        .subscribe(
+           resp=>{
+            if (resp.action=="done")
+            {
+              
+              const key = Object.keys(this.resp.params)[0]
+              
+              this.resp.params[key].value = resp.data.map((item:any)=>item[key])
+              this.resp.params.continue = true
+              this.api_continue(this.resp)
+
+            }
+            else
+            {
+              this.resp.params.continue = true 
+              this.api_continue(this.resp)
+              
+            }
+           }
+        )
+      }
+
+
       
 
 
@@ -70,7 +105,7 @@ export class ChatComponent {
   ask$():Observable<any>{
     
     return this.chat.ask$.pipe(
-      take(1),
+     
       switchMap(res=>this.open_popup$(res).pipe(
         take(1),
         map(applied=>[applied,res])))
@@ -90,41 +125,27 @@ export class ChatComponent {
     return this.popupService.popup$
     
   }
-  send() {
-    const text = this.prompt.trim();
-    if (!text || this.isSending) return;
-    
-    this.isSending = true;
-
-    const userMsg: ChatMessage = { id: uid(), role: 'user', text, createdAt: Date.now(),initialParams:{...this.initialParams} };
-    this.cdr.markForCheck();
-    this.messages = [...this.messages, userMsg];
-    this.prompt = '';
-    
-    const req = {
-      initialParams: this.initialParams,
-      messages: this.messages.map(m => ({ role: m.role, content: m.text })),
-    };
-    
-    this.ask$()
-    .subscribe(
+  subscribeResponse(){
+    const ask$ = this.ask$()
+    ask$.
+    subscribe(
       {
         next:([applied,resp])=>{
           
           if (applied.mode=="manual")
           {
 
-             alert("MAN")
+             
              this.handleManual(resp)
           }
           else
           {
-            alert("AUT")
+            
             this.handleAuto(resp)
           }
 
         },
-        complete:()=>alert("Completed")
+        complete:()=>console.log("Completed")
       }
     )
       
@@ -156,6 +177,24 @@ export class ChatComponent {
         this.isSending = false;
       },
     });
+  }
+  send() {
+    const text = this.prompt.trim();
+    if (!text || this.isSending) return;
+    
+    this.isSending = true;
+
+    const userMsg: ChatMessage = { id: uid(), role: 'user', text, createdAt: Date.now(),initialParams:{...this.initialParams} };
+    this.cdr.markForCheck();
+    this.messages = [...this.messages, userMsg];
+    this.prompt = '';
+    
+    const req = {
+      initialParams: this.initialParams,
+      messages: this.messages.map(m => ({ role: m.role, content: m.text })),
+    };
+    
+    
     this.chat.sendRequest(req)
   }
   toEdit(text:string)

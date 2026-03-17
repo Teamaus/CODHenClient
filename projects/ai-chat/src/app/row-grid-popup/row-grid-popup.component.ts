@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RowGridColumn, RowGridComponent, RowGridRow } from '../row-grid/row-grid.component';
 import { ResponseParserService } from '../response-parser.service';
 import { ApiListService } from '../api-list.service';
+import { IManual } from '../contract/IManual';
 
 export type RowId = string | number;
 export type GridColumn<T> = { key: keyof T; header: string; width?: string };
@@ -15,6 +16,7 @@ export type GridColumn<T> = { key: keyof T; header: string; width?: string };
   styleUrls: ['./row-grid-popup.component.css']
 })
 export class RowGridPopupComponent {
+  @Input({required:true})  manual!:IManual
   @Input() resp:any 
   @Input() open = false;
   @Input() title = 'Select rows';
@@ -51,11 +53,11 @@ export class RowGridPopupComponent {
     const selectedRows = this.rows.filter(r =>
       this.selectedIds.includes(r[this.idKey] as RowId)
     );
-    this.done.emit(selectedRows);
-    this.closed.emit();
+    
+    this.manual.close({action:"done",data:selectedRows})
   }
 
   onCancel() {
-    this.closed.emit();
+    this.manual.close({action:"cancel"})
   }
 }

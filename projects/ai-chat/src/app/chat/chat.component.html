@@ -1,3 +1,7 @@
+<manual #manual="manual">
+    
+</manual>
+
 <div class="chat">
   <header class="chat__header">
 
@@ -64,8 +68,8 @@
     <div *ngIf="popup_open">
       <app-select-auto-popup [open]="popup_open" (applied)="popup_apply($event)" (closed)="closed()"></app-select-auto-popup>
     </div>
-    <div *ngIf="row_grid_open">
-       <app-row-grid-popup [resp]="resp"></app-row-grid-popup>
+    <div *ngIf="manual.state=='manual'">
+       <app-row-grid-popup [manual]=manual [resp]="resp"></app-row-grid-popup>
     </div>
   </footer>
 </div>
