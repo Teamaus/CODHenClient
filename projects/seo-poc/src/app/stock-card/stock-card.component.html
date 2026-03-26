@@ -11,12 +11,15 @@
       <stock-symbol [symbol]="stock.symbol"></stock-symbol>
   </span>
   <codcoda-collapse-expand></codcoda-collapse-expand>
-  <div class="stock-row">
+  <!--<div class="stock-row">
     <span class="stock-field"><stock-field label="Entry:" [value]="stock.entry" [change]="'positive'"></stock-field></span>
     <span class="stock-field"><stock-field label="Stop:" [value]="stock.stop_loss"></stock-field></span>
     <span class="stock-field"><stock-field label="MA150:" [value]="stock.sma_150"></stock-field></span>
     <span class="stock-field"><stock-field label="Support:" [value]="stock.support"></stock-field></span>
     <span class="stock-field"><stock-field label="Rank:" [value]="stock.rank"></stock-field></span>
+  </div>-->
+  <div class="stock-row">
+      <span class="stock-field" *ngFor="let attr_entry of stock.attributes"><stock-field [label]="`${attr_entry[0]}`" [value]="attr_entry[1]"></stock-field></span>
   </div>
   <div class="buttons-row">
       <codcoda-button style="grid-row:1;grid-column:2" (clickEvent)="TradingView()" >Trading-View</codcoda-button>

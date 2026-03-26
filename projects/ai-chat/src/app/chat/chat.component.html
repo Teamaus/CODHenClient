@@ -68,11 +68,12 @@
     </div>
     
     
-      <app-select-auto-popup *ngIf="popupManager.getTopic('manual-select')" [open]="popup_open" (applied)="popup_apply($event)" (closed)="closed()"></app-select-auto-popup>
+      <app-select-auto-popup *ngIf="popupManager.getTopic('ask')" [open]="popup_open" (applied)="popup_apply($event)" (closed)="closed()"></app-select-auto-popup>
     
-    <div *ngIf="manual.state=='manual'">
-       <app-row-grid-popup [manual]=manual [resp]="resp"></app-row-grid-popup>
+      <div *ngIf="manual.state=='manual'">
+         <app-row-grid-popup [manual]=manual [resp]="resp"></app-row-grid-popup>
     </div>
+    
   </footer>
 </div>
 

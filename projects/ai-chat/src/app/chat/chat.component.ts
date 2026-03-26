@@ -44,7 +44,8 @@ export class ChatComponent {
   constructor(private chat: ChatService,private cdr: ChangeDetectorRef,
     private popupService:PopupService,private apiListService:ApiListService
   ,private respParser:ResponseParserService
-  ,@Inject(POPUP_MANAGER)public popupManager:IPopupManager) {
+  ,@Inject(POPUP_MANAGER)public popupManager:IPopupManager
+  ) {
      this.subscribeResponse()
   }
   onSelectionChanged(ids: string[]) {
@@ -65,7 +66,10 @@ export class ChatComponent {
   
   handleManual(resp:any)
   {
+    ///Here we actually take the topic from resp and publish it 
+    /// Then the relevant topic firesup 
       this.resp = resp 
+      
       if (this.manual)
       {
         this.manual.open()

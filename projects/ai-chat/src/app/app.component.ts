@@ -4,14 +4,20 @@ import { TestGridComponent } from './test-grid/test-grid.component';
 import { ManualSelectDirective } from './manual-select.directive';
 import { ChatPublisherDirective } from './chat-publisher.directive';
 import { PubSubDirective } from './pub-sub.directive';
+import { PopupManagerDirective } from './popup-manager.directive';
+import { TestPubsubComponent } from './test-pubsub/test-pubsub.component';
+import { AskDirective } from './ask.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ChatComponent,ManualSelectDirective,ChatPublisherDirective,PubSubDirective],
+  imports: [ChatComponent,ManualSelectDirective,ChatPublisherDirective,PubSubDirective,PopupManagerDirective,TestPubsubComponent,PubSubDirective,
+    ManualSelectDirective, AskDirective],
+  
   template: `
     <div class="shell">
-      <notification><app-chat></app-chat></notification>
+      <!--<notification><app-chat></app-chat></notification>-->
+      <notification><app-test-pubsub></app-test-pubsub></notification>
       <!--<test-app-row-grid></test-app-row-grid>-->
     </div>
   `,

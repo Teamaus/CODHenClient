@@ -1,9 +1,10 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
+import { CodObjectPipe } from '../cod-object.pipe';
 export type CHANGE = 'positive' | 'negative' | 'neutral' ;
 @Component({
   selector: 'stock-field',
-  imports: [NgClass,CommonModule],
+  imports: [NgClass,CommonModule,CodObjectPipe],
   templateUrl: './stock-field.component.html',
   styleUrl: './stock-field.component.css'
 })

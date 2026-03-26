@@ -1,4 +1,5 @@
 export interface StockDTO {
+  attributes:any
 entry: number
   target :number
   target_profit :number

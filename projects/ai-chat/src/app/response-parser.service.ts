@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ICommResponse } from 'MCPContracts';
 
 @Injectable({
   providedIn: 'root'
@@ -6,11 +7,12 @@ import { Injectable } from '@angular/core';
 export class ResponseParserService {
 
   constructor() { }
-  getData(resp:any,outField:string)
+  getData(resp:ICommResponse,outField:string)
   {
-      const data  = resp.data.map((r:any)=>r.response[outField])
-      const flat = data.reduce((acc:any[], curr:any) => acc.concat(curr), []);
       
-      return flat 
+      const data  = resp.body["data"].map((r:any)=>r.response[resp.prop])
+      const parsed = data.reduce((acc:any[], curr:any) => acc.concat(curr), []);
+      const manual = resp.manual
+      return {manual,parsed}
   }
 }

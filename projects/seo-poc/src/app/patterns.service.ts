@@ -5,17 +5,20 @@ import { HttpClient } from '@angular/common/http';
 const url = "http://localhost:3000/patterns"
 @Injectable()
 export class PatternsService {
-  extractStock(item:any):StockCardViewModel{
+  extractStock(item:any,chart_attributes:string[]):StockCardViewModel{
       const result = JSON.parse(item.pattern_result)
-      console.log("RESULT===>>",result)
-      return {
+      console.log("RESULT===>>",result,"attributes",chart_attributes)
+      const attribute_entries = chart_attributes.map(attrName=>[attrName,result.result[attrName]])
+      const attributes = attribute_entries
+          console.log("RESULT===>>2",attributes)
+      return {attributes,
   symbol: item.symbol, entry: result.result.entry, target: result.result["target-profit"],rank:result.result["rank-last"],
   sma_150:result.result["sma-last-close"],
   
   selected: false,
   open: false,
  
- 
+  
   target_profit: result.result["target-profit"]/result.result.entry,
   stop_loss: result.result["stop-loss"],
   rr: 5,
@@ -38,7 +41,7 @@ export class PatternsService {
       //const ret = resp.filter(itemresp=>itemresp.pattern==spattern) 
       console.log("RESP2:",resp)
       const pattern_data = resp.pattern_data
-      const stocks = pattern_data.map((item:any)=>this.extractStock(item))
+      const stocks = pattern_data.map((item:any)=>this.extractStock(item,resp.attributes.map((attr:any)=>attr[0])))
       const pattern ={pattern:resp.pattern,stocks:[...stocks],open:signal<boolean>(false)}
       
       //const pattern = {pattern:ret[0].patter}

@@ -10,7 +10,12 @@ export interface ICommRequest
 }
 export interface ICommResponse 
 {
-	type:CommRequestType,
+	type:CommRequestType
+	prop:string
+	apiList:{api_name:string,schema:{[key:string]:{entity:string,field:string,isArray?:boolean} }}[] ,
+	maunal:{type:string,body:any} //body is accroding to the concrete type for now select 
+	props:string[], 
 	body:MessageBody
 
 }
+

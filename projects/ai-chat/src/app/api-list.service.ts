@@ -6,7 +6,7 @@ export type  Manual = {type:string,key_id:string,columns:{key:string,header:stri
 export class ApiListService {
 
   constructor() { }
-  outField(out_schema:string):string
+  outField(out_schema:any):string
   {
       return Object.keys(out_schema)[0]
   }

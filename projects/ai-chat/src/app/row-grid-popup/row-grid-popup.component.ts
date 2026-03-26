@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RowGridColumn, RowGridComponent, RowGridRow } from '../row-grid/row-grid.component';
 import { ResponseParserService } from '../response-parser.service';
@@ -24,7 +24,9 @@ export class RowGridPopupComponent {
   @Input() columns: RowGridColumn[]=[]
   @Input() idKey: string = "" 
   @Input() multi = true;
-
+  uiSignal  = input<boolean>()
+  data = input<any>() 
+  show = input<boolean>() 
   @Output() closed = new EventEmitter<void>();
   @Output() done = new EventEmitter<RowGridRow[]>();
 
@@ -43,7 +45,7 @@ export class RowGridPopupComponent {
       
       
       this.columns = respColumns.map((c:any)=>{return {key:c.key,header:c.header,width:"100px"}})
-      this.rows = data.map((item:any)=>{return {"ProductID":item}})
+      //this.rows = data.map((item:any)=>{return {"ProductID":item}})
       
       this.idKey = manual.key_id
       console.log("Rows:",this.rows)
