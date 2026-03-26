@@ -19,7 +19,7 @@ export class SelectAutoPopupComponent implements IPublisher {
   @Input() mode: StylesheetMode = 'auto';
   @Input() selectedId = '';
   @Input() options: Array<{ id: string; name: string }> = [];
-  uiSignal = input<boolean>()
+  @Input() response:any 
   @Output() closed = new EventEmitter<void>();
   @Output() applied = new EventEmitter<{ mode: StylesheetMode; selectedId: string }>();
   postMessage:IPostMessage 
