@@ -12,31 +12,27 @@ import { Pattern } from './contracts/patterns';
 
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { CodHeaderComponent } from './cod-header/cod-header.component';
+import { Page } from '@syncfusion/ej2-angular-grids';
+import { CodcodaPageComponent } from './codcoda-page/codcoda-page.component';
+import { CodcodaPageDirective } from './codcoda-page.directive';
 
 @Component({
   selector: 'app-root',
   //imports: [TestEcComponent  ],
-  imports:[StockCardListComponent,NgForOf,LoginComponent,NgIf],
-  providers:[PatternsService],
+  imports:[CodcodaPageComponent,LoginComponent,NgIf,CodHeaderComponent,CodcodaPageDirective],
+  
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'seo-poc';
-  patterns:Pattern[] = [] 
-  constructor(private patternsService:PatternsService){
-      effect (()=>{
-        this.patterns = this.patternsService.patterns()
-        console.log("PATTERNS:",this.patterns)
-
-      })
+  
+  constructor(){
+  
   }
-  selectPattern(selectedPattern:Pattern)
-  {
-      
-      console.log("Here OPEN:",this.selectPattern)
-      this.patterns.forEach(pattern=>pattern!=selectedPattern?pattern.open.set(false):{})
-  } 
+  
+
   
   
 }

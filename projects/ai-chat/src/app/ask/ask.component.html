@@ -1,3 +1,2 @@
-<div *ngIf="show">
-	<app-select-auto-popup (applied)="apply('close')" (closed)="apply('cancel')" [open]="true"></app-select-auto-popup>
-</div>
+<app-select-auto-popup *ngIf="show" (applied)="apply('close')" (closed)="apply('cancel')" [open]="true"></app-select-auto-popup>
+

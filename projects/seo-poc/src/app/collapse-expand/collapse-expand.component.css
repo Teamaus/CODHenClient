@@ -1,4 +1,9 @@
 .collapse-icon:hover{
-	cursor:pointer
-	
+	cursor:pointer;
 }
+.collapse-icon
+{
+	margin-right: 10px;
+}
+
+

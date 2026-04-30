@@ -1,0 +1,12 @@
+<div class="dropdown" (click)="toggleDropdown($event)">
+  <button class="dropdown-toggle">
+    <span class="label">{{ selectedValue ?? placeholder }}</span>
+    <span class="arrow"></span>
+  </button>
+
+  <ul class="dropdown-menu">
+    <li *ngFor="let opt of options" (click)="choose(opt)">
+      {{ opt }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,5 @@
+<cod-sort-button *ngFor="let attr of sorted_attributes" 
+[attribute]="attr.name" [selected]="attr.selected" 
+(sort_by)="sort_by($event)">
+
+</cod-sort-button>

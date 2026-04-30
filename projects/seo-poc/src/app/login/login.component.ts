@@ -25,16 +25,31 @@ import { IsLoggedOnDirective } from '../is-logged-on.directive';
     (async () => {
       await this.auth.initGoogle(async (token) => {
         console.log('Google token:', token);
+        console.log("Wait for cod_user")
         const cod_user:any = await this.auth.loginWithBackend(token);
+        console.log("got cod_user")
         if (cod_user["cod_id"])
         {
             
             this._isLoggedOn = true
+            
+            console.log("set cod_user",this._isLoggedOn)
+            if (this.loggedOn)
+            {
+                this.loggedOn.isLoggeOn()
+                .subscribe(
+                      (res:any)=>{
+                          console.log("RES:>>",res)
+                          this._isLoggedOn = res["is_logged_on"]
+                      }
+                )
+            }
         }
-        
+       
       });
-
-      await this.auth.renderButton(el.nativeElement);
+        console.log("Wait for render button ")
+        await this.auth.renderButton(el.nativeElement); 
+       console.log("render button ")
     })();
   }
     get isLoggedOn():boolean{
@@ -50,7 +65,8 @@ import { IsLoggedOnDirective } from '../is-logged-on.directive';
     {
         console.log("loggedOn:",this.loggedOn)
         if (this.loggedOn)
-        {        
+        {
+          console.log("Wait for is Logged ON")        
           this.loggedOn.isLoggeOn()
           .subscribe(
             (res:any)=>{

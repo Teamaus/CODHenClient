@@ -1,0 +1,15 @@
+.icon {
+	border-radius: 1px;
+	cursor:pointer;
+	width: 20px;
+	height: 18px;
+}
+.label{
+	color: #0B9981;
+	font-family: Roboto;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;	
+}
+

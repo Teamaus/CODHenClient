@@ -1,0 +1,29 @@
+.icon {
+	border-radius: 1px;
+	cursor:pointer;
+	width: 20px;
+	height: 18px;
+}
+.label{
+	color: #0B9981;
+	font-family: Roboto;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;	
+	margin-left: 20px;
+	
+}
+.arrow  {
+  stroke: red;/*#22c55e;*/
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-width 0.2s ease;
+}
+
+/* Selected state */
+.arrow.selected {
+  stroke-width: 3.5;
+}
+

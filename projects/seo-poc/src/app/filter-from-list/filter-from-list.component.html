@@ -1,0 +1,11 @@
+<label>filter by {{ label }}:</label>
+<!--<cod-down-dropdown [options]="options">
+	
+</cod-down-dropdown>-->
+
+<select [(ngModel)]="selectedValue" (change)="onFilterChanged($event)" class="list">
+	 <option [value]="selectedValue">{{selectedValue}}</option>
+  	 <option *ngFor="let opt of options" [value]="opt">
+    {{ opt}}
+  </option>
+</select>

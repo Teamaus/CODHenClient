@@ -1,7 +1,14 @@
-
+<div>
+<cod-header></cod-header>
 <app-login #login="app-login"></app-login>
+<!--
 <ng-content  *ngIf="login.isLoggedOn">
-	<codcoda-stock-card-list *ngFor="let pattern of patterns" [pattern]="pattern" (selected)="selectPattern(pattern)"></codcoda-stock-card-list>
-</ng-content>
+	
+	<codcoda-stock-card-list *ngFor="let pattern of patterns" [pattern]="pattern" (selected)="selectPattern(pattern)" [sectors]="getSectors()"></codcoda-stock-card-list>
+</ng-content>-->
+<codcoda-page *ngIf="login.isLoggedOn">
+	
+</codcoda-page>
 
 <!--<app-test-ec></app-test-ec>-->
+</div>

@@ -9,7 +9,7 @@ import { NgIf } from '@angular/common';
   styleUrl: './stock-symbol.component.css'
 })
 export class StockSymbolComponent {
-  
+  sector  = input<string>("")
   selected = input<boolean>(false);
   symbol = input<string>("AAPL");
   constructor(@Inject(ICOLLAPSE_EXPAND)public details:ICollapseExpand)

@@ -29,6 +29,9 @@ export class StockCardComponent {
   isSelected = model<boolean>(false)
   @Output() selection = new EventEmitter() 
   //@ViewChild(ICOLLAPSE_EXPAND) ce?:ICollapseExpand
+  ngOnInit(){
+    console.log("STOCK:",this.stock)
+  }
   toggleSelect(event:Event){
     
     event.stopPropagation()

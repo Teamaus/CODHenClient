@@ -2,13 +2,16 @@
   
 <summary class="stock-card-summary" [class.selected]="stock.selected">
   
-  <stock-symbol [symbol]="stock.symbol" [selected]="stock.selected"></stock-symbol>	
+  <stock-symbol [symbol]="stock.symbol" [selected]="stock.selected" [sector]="stock.sector"></stock-symbol>	
+  
 </summary>
 <span>
 <div class="stock-card" (click)="collapse()" #body [class.selected]="stock.selected" >
   <span>
       <input type="checkbox" [checked]="stock.selected" (click)="toggleSelect($event)"/>
       <stock-symbol [symbol]="stock.symbol"></stock-symbol>
+      <span class="sector">({{stock.sector}})</span>
+      
   </span>
   <codcoda-collapse-expand></codcoda-collapse-expand>
   <!--<div class="stock-row">
