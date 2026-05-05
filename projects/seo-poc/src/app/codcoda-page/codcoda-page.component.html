@@ -1,5 +1,5 @@
 
-	
-<codcoda-stock-card-list *ngFor="let pattern of patterns" [pattern]="pattern" (selected)="selectPattern(pattern)" [sectors]="getSectors()"></codcoda-stock-card-list>
+<codcoda-ids [ids]="ids" (idChanged)="idChanged($event)"></codcoda-ids>
+<codcoda-stock-card-list *ngFor="let pattern of patterns()" [pattern]="pattern" (selected)="selectPattern(pattern)" [sectors]="getSectors()"></codcoda-stock-card-list>
 
 

@@ -1,4 +1,4 @@
-import { Directive, forwardRef } from '@angular/core';
+import { Directive, EventEmitter, forwardRef, Signal } from '@angular/core';
 import { PatternsService } from './patterns.service';
 import { CODCODA_PAGE, IPage, Pattern } from './contracts/patterns';
 
@@ -14,8 +14,16 @@ export class CodcodaPageDirective implements IPage{
   constructor(private patternService:PatternsService) {
 
   }
-  get patterns(): Pattern[] {
-   return this.patternService.patterns()
+  PageChanged(id: any): void {
+    this.patternService.getPatterns(id)
+    
+  }
+  
+  get ids(): any[] {
+    return this.patternService.ids
+  }
+  get patterns(): Signal<Pattern[]> {
+   return this.patternService.patterns
   }
   get sectors(): string[] {
     return this.patternService.sectors

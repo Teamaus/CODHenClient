@@ -10,17 +10,24 @@ import { DownloadButtonComponent } from "../download-button/download-button.comp
 import { SortButtonComponent } from "../sort-button/sort-button.component";
 import { SortComponent } from '../sort/sort.component';
 import { FilterFromListComponent } from "../filter-from-list/filter-from-list.component";
-
+import { ListManipulationComponent } from '../COD/list-manipulation/list-manipulation/list-manipulation.component';
+import { CodSortComponent } from '../COD/cod-sort/cod-sort/cod-sort.component';
+//
 @Component({
   selector: 'codcoda-stock-card-list',
-  imports: [StockCardComponent, NgForOf, CollapseExpandComponent, NgIf, DownloadButtonComponent, SortComponent, FilterFromListComponent],
+  imports: [StockCardComponent, NgForOf, CollapseExpandComponent, NgIf, DownloadButtonComponent,ListManipulationComponent,CodSortComponent],
   templateUrl: './stock-card-list.component.html',
   styleUrl: './stock-card-list.component.css',
   providers:[{provide:ICOLLAPSE_EXPAND,useExisting:forwardRef(()=>StockCardListComponent)}]
 })
-export class StockCardListComponent {
+export class StockCardListComponent implements ICollapseExpand {
+  
 sector = signal<string>("(All)")
-
+ascdesc : "asc" | "desc" = "desc"
+sortBy($event:{sortby:string,descending:boolean}){
+  this.sortStocks({attribute:$event.sortby,state:$event.descending?"desc":"asc"})
+}
+state=computed<CE>(()=>this.pattern.open()?"expanded":"collapsed")
 sectorFilter($event: string) {
   this.sector.set($event)
 }
@@ -36,6 +43,7 @@ sectorFilter($event: string) {
   close = computed(()=>this.pattern.open()?this.Close():{})
   
   filterCounter = 5
+  
   sortStocks(sortby:{attribute:string,state:"asc"|"desc"}){
    
     console.log("STOCKS=> Before Sort",this.pattern.stocks[0],sortby)
@@ -48,7 +56,9 @@ sectorFilter($event: string) {
   }
   
   largeList(){
-    return this.pattern.stocks.length>this.filterCounter
+    const retval = this.pattern.stocks.length>this.filterCounter
+    console.log("Large List:",retval)  
+    return retval
   }
   Close(){
      this.pattern.stocks.forEach(stock=>stock.open = false)
@@ -69,14 +79,15 @@ sectorFilter($event: string) {
       }
       console.log(this.pattern.stocks)
       
-      this.ce?.toggle()   
-       this.pattern.open.set(!this.pattern.open())
+       //this.ce?.toggle()   
+      this.pattern.open.set(!this.pattern.open())
   
   }
   All = computed(()=>this.sector()=="(All)")
   filtered_stocks = computed(() => {
     let all = this.stocks()
     const sector = this.sector() 
+    
     if (sector!="(All)")
     {
 
@@ -88,7 +99,7 @@ sectorFilter($event: string) {
       console.log("Here:Closing",this.pattern.pattern)
       this.Close() 
       const retval = all.slice(0, this.filterCounter); 
-      console.log("COMPUTED=>SLICE",retval)
+      console.log("COMPUTED=>SLICE",retval,this.ce)
       
       return all.slice(0, this.filterCounter);     // or whatever your rule is
     }
@@ -106,15 +117,15 @@ sectorFilter($event: string) {
       const obj2 = Object.fromEntries(b.attributes)
       const sa = Object.fromEntries(a.sorted_attributes)
       const sb = Object.fromEntries(b.sorted_attributes)
-
       
       
-      console.log("SORTCOMP:",sa[sortby.attribute],sb,sortby.attribute)
+      console.log("SORTCOMP:",sa[sortby.attribute],sb[sortby.attribute])
       return sortby.state=="asc"?sa[sortby.attribute]-sb[sortby.attribute]:sb[sortby.attribute]-sa[sortby.attribute] 
   }
   ngOnInit(): void {
     console.log("stocks in list:",this.pattern.stocks)
     const attribute =this.pattern.stocks[0].sorted_attributes[0][0]
+    
     const state = "asc"
     this.sortStocks({attribute,state})
      console.log("stocks in list After sorting:",this.pattern.stocks)

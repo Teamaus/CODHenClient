@@ -1,9 +1,10 @@
 
 <span 
-  class="collapse-icon" 
+  class="collapse-icon" (click)="toggle()"
   
   
 >
+  
   <svg *ngIf="state()=='expanded'"
      
     width="14" height="14" 
@@ -20,7 +21,7 @@
   </svg>
 
    <svg *ngIf="state()=='collapsed'" 
-   class="icon-expanded" 
+   
    width="14" height="14" 
    viewBox="0 0 24 24">
         <path 

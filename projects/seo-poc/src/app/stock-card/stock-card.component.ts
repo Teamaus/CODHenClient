@@ -16,7 +16,7 @@ import { StockCardViewModel } from '../contracts/stock-card-vm';
             CodcodaButtonComponent, 
             StockFieldComponent, 
             StockSymbolComponent, 
-            CollapseExpandComponent,
+            
             StockDetailsDirective],
   templateUrl: './stock-card.component.html',
   styleUrl: './stock-card.component.css',
@@ -31,6 +31,10 @@ export class StockCardComponent {
   //@ViewChild(ICOLLAPSE_EXPAND) ce?:ICollapseExpand
   ngOnInit(){
     console.log("STOCK:",this.stock)
+  }
+  hide(){
+    if (this.details)
+        this.details.nativeElement.open=false
   }
   toggleSelect(event:Event){
     

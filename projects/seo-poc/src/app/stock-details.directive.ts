@@ -1,4 +1,4 @@
-import { ContentChild, Directive, ElementRef, forwardRef, HostListener } from '@angular/core';
+import { ContentChild, Directive, ElementRef, forwardRef, HostListener, signal, Signal } from '@angular/core';
 import { CE, ICOLLAPSE_EXPAND, ICollapseExpand } from './contracts/icollapse-expand';
 import { CollapseExpandComponent } from './collapse-expand/collapse-expand.component';
 
@@ -11,20 +11,32 @@ export class StockDetailsDirective implements ICollapseExpand{
   constructor(private elementRef:ElementRef<HTMLDetailsElement>) {
     console.log("StockDetailsDirective")
    }
-  get state(): CE {
-    return this.elementRef.nativeElement.open?"expanded":"collapsed"
+  _state = signal<CE>("collapsed")
+  get state(): Signal<CE> {
+    return this._state
   }
-  toggle(state: CE): void {
+  set state(value: CE) {
+      this.elementRef.nativeElement.open=value=="expanded"?true:false;   
+    this._state.set(value)
+  }
+  @HostListener("toggle")
+  toggle(): void {
       
-      if (state=="collapsed")
+      if (this.state()=="collapsed")
       {
-          this.elementRef.nativeElement.open = false
+          this.state="expanded"
+         
       }
-  }
-  @HostListener('toggle')
-  onToggle()
-  {
-      this.collapseExpand?.state.set(this.state) 
+      else
+      {
+        this.state="collapsed"
+       
+        
+      }
+      
+    
+    
   }
 
+  
 }

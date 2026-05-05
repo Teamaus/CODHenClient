@@ -46,27 +46,25 @@ export class PatternsService {
       //const ret = resp.filter(itemresp=>itemresp.pattern==spattern) 
       console.log("RESP2:",resp)
       const pattern_data = resp.pattern_data
+      
       const stocks = pattern_data.map((item:any)=>this.extractStock(item,resp.attributes.map((attr:any)=>attr[0]),resp.sorted_attributes.map((attr:any)=>attr[0])))
       const pattern:any ={pattern:resp.pattern,stocks:[...stocks],open:signal<boolean>(false)}
       pattern.sectors = stocks.reduce((acc:Set<string>,curr:any)=>acc.add(curr.sector!=""?curr.sector:"(Empty)"),new Set<string>())
       pattern.sectors = [...pattern.sectors,"(All)"].sort()
-      
-      //const pattern = {pattern:ret[0].patter}
-     console.log("RET:",stocks,this.sectors)
-      
+      pattern.sorted_attributes = resp.sorted_attributes.map((attr:any)=>attr[0])
+      console.log("RET:",pattern.sectors,pattern.sorted_attributes)
       return pattern
   }
-  constructor(private http:HttpClient) { 
-      
-      this.http.get(`${url}?id=DATA_2026-01-13`, {
+  getPatterns(id:string="DATA_ALL"){
+         this.http.get(`${url}?id=${id}`, {
   withCredentials: true
 })
       .subscribe(
-        resp=>
+        (resp:any)=>
           { 
             console.log("RESP:",resp)
             let ret:any[] = [] 
-            for(const r of resp as any[])
+            for(const r of resp.patterns as any[])
             {
               const pattern = this.extractData(r)
               console.log("Pattern:",pattern)
@@ -74,71 +72,18 @@ export class PatternsService {
               
             }
             this.patterns.set(ret)
+            this.ids = resp.ids
           }
       )
-      /*const stocks:StockCardViewModel[] = [{
-                                        symbol:"AAPL",
-                                        entry: 150,
-                                        target: 200,
-                                        target_profit: 50,
-                                        stop_loss: 5,
-                                        rr: 10,
-                                        resistance: 180,
-                                        support: 145,
-                                        sentences: ["forming handle","breaking out"],
-                                        selected:false,
-                                        open:false
-                                      },
-                                      {
-                                        symbol:"MSFT",
-                                        entry: 250,
-                                        target: 300,
-                                        target_profit: 50,
-                                        stop_loss: 8,
-                                        rr: 8,
-                                        resistance: 280,
-                                        support: 245,
-                                        sentences: ["forming cup","breaking out"],
-                                        selected:false,
-                                        open:false
-
-                                      } ,
-                                    {  symbol:"GOOGL",
-                                        entry: 2700,
-                                        target: 3000,
-                                        target_profit: 300,
-                                        stop_loss: 50,
-                                        rr: 6,
-                                        resistance: 2900,
-                                        support: 2650,
-                                        sentences: ["forming handle","breaking out"],
-                                        selected:false,
-                                        open:false
-
-                                      },
-                                    {
-                                      symbol:"AMZN",
-                                        entry: 3300,
-                                        target: 3600,
-                                        target_profit: 300,
-                                        stop_loss: 60,
-                                        rr: 5,
-                                        resistance: 3500,
-                                        support: 3250,
-                                        sentences: ["forming cup","breaking out"] ,
-                                        selected:false,
-                                        open:false
-                                    }]
-      const stocks2 = stocks.map(stock=>{return {...stock}})
-
-      const pattern1:Pattern = {pattern:"cupandhandle",stocks:[...stocks],open:signal<boolean>(false)}
-      const pattern2:Pattern = {pattern:"cupandhandle_2",stocks:[...stocks2],open:signal<boolean>(false)}
-      this.patterns.patterns = [...this.patterns.patterns,pattern1]
-      console.log("PATTERNS:",pattern1.stocks[0]===pattern2.stocks[0])
-      this.patterns.patterns = [...this.patterns.patterns,pattern2]*/
       
 
+ 
+
+  }
+  constructor(private http:HttpClient) { 
+      this.getPatterns()
   }
   patterns = signal<any[]>([]) 
   sectors = []
+  ids:any[] = []
 }

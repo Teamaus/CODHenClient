@@ -18,7 +18,7 @@ export class StockSymbolComponent {
   }
   get stock_symbol_class(){
     let retval = "stock-symbol"
-    if (this.details.state=="expanded")
+    if (this.details.state()=="expanded")
         retval+=" open"
     console.log("STOCK_SYMBOL:",retval)
     return retval 
