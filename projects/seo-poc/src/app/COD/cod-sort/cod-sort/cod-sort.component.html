@@ -1,6 +1,6 @@
 <span class="cod-sort">
   <cod-list-manipulation selectedValue="symbol" label="Sort by" [options]="options" (listChanged)="onListChanged($event)"></cod-list-manipulation>
   <label>
-    <input type="checkbox" [(ngModel)]="descending" (ngModelChange)="onSortDirectionChanged()" /> Descending
+    <input type="checkbox" [(ngModel)]="descending" (ngModelChange)="onSortDirectionChanged()" /><span class="label">Descending</span> 
   </label>
 </span>

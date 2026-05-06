@@ -11,6 +11,7 @@ export interface Pattern{
 	stocks:StockCardViewModel[] 
 	sectors:string[]
 	sorted_attributes:string[]
+	save_stock_state?:boolean[] 
 	
 }
 

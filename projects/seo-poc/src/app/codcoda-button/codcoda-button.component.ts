@@ -12,6 +12,8 @@ export class CodcodaButtonComponent {
   theme = input<string>("dark")
   @Output() clickEvent = new EventEmitter() 
   clicked(event: MouseEvent){
+      
+      event.preventDefault
       event.stopPropagation()
       this.clickEvent.emit() 
   }

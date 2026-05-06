@@ -16,7 +16,6 @@ import { StockCardViewModel } from '../contracts/stock-card-vm';
             CodcodaButtonComponent, 
             StockFieldComponent, 
             StockSymbolComponent, 
-            
             StockDetailsDirective],
   templateUrl: './stock-card.component.html',
   styleUrl: './stock-card.component.css',
@@ -28,6 +27,7 @@ export class StockCardComponent {
   @Input() stock:StockCardViewModel = {} as StockCardViewModel
   isSelected = model<boolean>(false)
   @Output() selection = new EventEmitter() 
+  @Output() openChanged = new EventEmitter<StockCardViewModel>()
   //@ViewChild(ICOLLAPSE_EXPAND) ce?:ICollapseExpand
   ngOnInit(){
     console.log("STOCK:",this.stock)
@@ -50,6 +50,7 @@ export class StockCardComponent {
     if (this.stock)
     {
       this.stock.open = false  
+      this.openChanged.emit(this.stock)
     }
     
   }
@@ -58,6 +59,9 @@ export class StockCardComponent {
     if (this.details)
     {
         this.stock.open = this.details.nativeElement.open
+        if (this.stock.open)
+          this.stock.selected=true
+        this.openChanged.emit(this.stock)
     }
   }
   tabRef: Window | null = null;

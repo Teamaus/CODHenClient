@@ -22,15 +22,16 @@ export class PatternsService {
         sector:item.Sector,
         selected: false,
         open: false,
+        saved_state:false,
  
   
-  target_profit: result.result["target-profit"]/result.result.entry,
-  stop_loss: result.result["stop-loss"],
-  rr: 5,
-  resistance: result.result["optional"]["resistance"],
-  support: result.result["optional"]["support"],
+        target_profit: result.result["target-profit"]/result.result.entry,
+        stop_loss: result.result["stop-loss"],
+        rr: 5,
+        resistance: result.result["optional"]["resistance"],
+        support: result.result["optional"]["support"],
   
-  sentences: [],
+        sentences: [],
   
   
 }

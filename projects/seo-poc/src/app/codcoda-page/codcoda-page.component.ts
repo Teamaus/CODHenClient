@@ -3,6 +3,7 @@ import { CODCODA_PAGE, IPage, Pattern } from '../contracts/patterns';
 import { StockCardListComponent } from '../stock-card-list/stock-card-list.component';
 import { NgForOf, NgForOfContext } from '@angular/common';
 import { CodcodaIdsComponent } from '../codcoda-ids/codcoda-ids.component';
+import { SelectControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'codcoda-page',
@@ -28,14 +29,26 @@ export class CodcodaPageComponent {
   }
   selectPattern(selectedPattern:Pattern)
   {
-      
-      console.log("Here OPEN:",this.selectPattern)
-      this.patterns().forEach(pattern=>pattern!=selectedPattern?pattern.open.set(false):{})
+      this.restorePattern(selectedPattern)
+      this.patterns().forEach(pattern=>pattern!=selectedPattern?this.closePattern(pattern):{})
   } 
   idChanged($event:any){
       this.page.PageChanged($event)
     
   }
+closePattern(pattern:Pattern){
+  
+  pattern.open.set(false)
+  pattern.stocks.forEach(stock=>{stock.open=false})
+  
+  
+
+  ///We should save the states of the closing stock and re-open it ... 
+}
+restorePattern(pattern:Pattern)
+{
+  //pattern.stocks.forEach(stock=>stock.open=stock.saved_state)
+}
   
 
 }

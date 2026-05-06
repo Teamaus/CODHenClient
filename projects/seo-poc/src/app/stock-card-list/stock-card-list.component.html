@@ -1,17 +1,29 @@
-	<div >
-		<h1 class="pattern" >{{pattern.pattern}} {{SelectionMessage()}}</h1>
+	<div class="pattern-container">
+		<div class="pattern-title-row">
 		<codcoda-collapse-expand *ngIf="largeList()"></codcoda-collapse-expand>
-		<cod-download-button (click)="export_to_csv(false)"></cod-download-button>
-		<cod-list-manipulation 
-		label="Filter by sector" [options]="pattern.sectors" (listChanged)="sectorFilter($event)">
-		</cod-list-manipulation>
-		<!--<cod-list-manipulation label="Sorted by:" [options]="pattern.sorted_attributes" (listChanged)="sortBy($event)">
-		</cod-list-manipulation>-->
-		<cod-sort [options]="pattern.sorted_attributes" (listChanged)="sortBy($event)"></cod-sort>
-	</div>
+		<h1 class="pattern" >
+			{{pattern.pattern}} 
+			
+			
+		</h1>
+		<span class="stock-count">({{NumberOfStocksInList()}})</span>
+		</div>
+		<div class="pattern-toolbar">
+			<cod-download-button (click)="export_to_csv(false)"></cod-download-button>
+			<cod-list-manipulation 
+			label="Filter by sector" [options]="pattern.sectors" (listChanged)="sectorFilter($event)">
+			</cod-list-manipulation>
+			<!--<cod-list-manipulation label="Sorted by:" [options]="pattern.sorted_attributes" (listChanged)="sortBy($event)">
+			</cod-list-manipulation>-->
+			<cod-sort [options]="pattern.sorted_attributes" (listChanged)="sortBy($event)"></cod-sort>
+			<cod-checkbox label="Visited only" (checked)="filterBySelected($event)"></cod-checkbox>
+			<codcoda-button (clickEvent)="Close()">Close all visited stocks</codcoda-button>
+		</div>
+	
 	<div class="stock-card-list">
 		<div *ngFor="let stock of filtered_stocks()">
-				<codcoda-stock-card [stock]="stock" ></codcoda-stock-card>
+				<codcoda-stock-card [stock]="stock"></codcoda-stock-card>
 		</div>
 	</div>
+</div>
 

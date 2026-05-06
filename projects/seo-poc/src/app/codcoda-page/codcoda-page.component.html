@@ -1,5 +1,17 @@
+<div class="scanner-content">
 
-<codcoda-ids [ids]="ids" (idChanged)="idChanged($event)"></codcoda-ids>
-<codcoda-stock-card-list *ngFor="let pattern of patterns()" [pattern]="pattern" (selected)="selectPattern(pattern)" [sectors]="getSectors()"></codcoda-stock-card-list>
+  <div class="page-controls">
+    <codcoda-ids
+      [ids]="ids"
+      (idChanged)="idChanged($event)">
+    </codcoda-ids>
+  </div>
 
+  <codcoda-stock-card-list
+    *ngFor="let pattern of patterns()"
+    [pattern]="pattern"
+    (selected)="selectPattern(pattern)"
+    [sectors]="getSectors()">
+  </codcoda-stock-card-list>
 
+</div>

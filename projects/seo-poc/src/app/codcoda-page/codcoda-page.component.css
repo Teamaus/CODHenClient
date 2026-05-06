@@ -1,0 +1,44 @@
+.page-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+
+  margin-bottom:28px;
+}
+
+.logo-section{
+  display:flex;
+  align-items:center;
+}
+
+.date-section{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.codcoda-page-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-right: 24px;
+}
+
+.date-selector {
+  display: block;
+}
+
+.page-controls {
+  width: fit-content;
+  min-width: 1100px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.scanner-content {
+  max-width: 1710px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
