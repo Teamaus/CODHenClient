@@ -2,6 +2,8 @@
 <span 
   class="collapse-icon" (click)="toggle()"
 >
+  <span class="label">{{state()=='expanded'?'show less':'show more'}}</span>
+  
   <svg *ngIf="state()=='expanded'"
     width="14" height="14" 
     viewBox="0 0 24 24"
