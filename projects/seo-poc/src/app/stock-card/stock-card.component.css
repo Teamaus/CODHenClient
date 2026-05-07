@@ -117,6 +117,7 @@ details .stock-card-summary.selected
   accent-color: var(--clr-border-selected);
 }
 
+
 /* Buttons inside card */
 .trade-card .btn {
   border: 1px solid #d1d5db;
@@ -173,3 +174,54 @@ details .stock-card-summary.selected
   font-size: 16px;
 }
 
+.stock-card {
+  position: relative;
+}
+.visited-label
+{
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #15803d;
+  opacity:0
+}
+/* show only on hover */
+.stock-card:hover .visited-label {
+  opacity: 1;
+}
+.close-card,.visited-checkbox {
+  position: relative;
+  
+}
+.visited-checkbox{
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.close-card::after{
+  content: "Close Card";
+  
+}
+.visited-checkbox::after{
+  content: "Toggle Visited";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  
+  
+}
+.visited-checkbox::after,
+.close-card::after {
+  color: #15803d;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.visited-checkbox:hover::after,
+.close-card:hover::after {
+  opacity: 1;
+}

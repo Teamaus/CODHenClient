@@ -8,12 +8,13 @@
 <span>
 <div class="stock-card"  #body [class.selected]="stock.selected" >
   <span>
-      <input type="checkbox" [checked]="stock.selected" (click)="toggleSelect($event)"/>
+      <input type="checkbox" class="visited-checkbox" [(ngModel)]="stock.selected" (click)="toggleSelect($event)"/>
       <stock-symbol [symbol]="stock.symbol"></stock-symbol>
       <span class="sector">({{stock.sector}})</span>
       
   </span>
-  <svg (click)="hide()"
+  <span class="close-card">
+  <svg (click)="hide()" 
      
     width="14" height="14" 
     viewBox="0 0 24 24"
@@ -27,15 +28,15 @@
       stroke-linejoin="round"
     />
   </svg>
-
+  </span>
   <div class="stock-row">
       <span class="stock-field" *ngFor="let attr_entry of stock.attributes"><stock-field [label]="`${attr_entry[0]}`" [value]="attr_entry[1]"></stock-field></span>
   </div>
   <div class="buttons-row">
       <codcoda-button style="grid-row:1;grid-column:2" (clickEvent)="TradingView()" >Trading-View</codcoda-button>
   </div>
+  <div class="visited-label">{{stock.selected?'Visited':'Not Visited'}}</div>
 </div>
 </span>
-
-</details>
+</details>  
 

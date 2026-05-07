@@ -9,10 +9,12 @@ import { CommonModule, NgFor, NgForOf } from '@angular/common';
 import { CollapseExpandComponent } from "../collapse-expand/collapse-expand.component";
 import { StockDetailsDirective } from '../stock-details.directive';
 import { StockCardViewModel } from '../contracts/stock-card-vm';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'codcoda-stock-card',
   imports: [CommonModule,
+            FormsModule,
             CodcodaButtonComponent, 
             StockFieldComponent, 
             StockSymbolComponent, 
