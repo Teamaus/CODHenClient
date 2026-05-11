@@ -153,11 +153,19 @@ sectorFilter($event: string) {
   //closeOpenEffect = effect(()=>this.patternOpenCloseEffect())
   ngOnInit(): void {
     console.log("stocks in list:",this.pattern.stocks)
-    const attribute =this.pattern.stocks[0].sorted_attributes[0][0]
+    if (this.pattern.stocks[0].sorted_attributes.length>0)
+    {
+
+      const attribute =this.pattern.stocks[0].sorted_attributes[0][0]
     
-    const state = "asc"
-    this.sortStocks({attribute,state})
-     console.log("stocks in list After sorting:",this.pattern.stocks)
+      const state = "asc"
+      this.sortStocks({attribute,state})
+      console.log("stocks in list After sorting:",this.pattern.stocks)
+    }
+    else
+    {
+      this.stocks.set(this.pattern.stocks)
+    }
   }
   export_to_csv(selected:boolean){
     const sector = this.sector() 
