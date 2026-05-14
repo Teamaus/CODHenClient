@@ -1,0 +1,57 @@
+❯ Building...
+=>>>>>
+loggedOn: e {
+  http: e {
+    handler: e {
+      backend: [e],
+      injector: [ha],
+      chain: null,
+      pendingTasks: [e],
+      contributeToStability: true
+    }
+  },
+  __ngContext__: 3
+}
+Wait for is Logged ON
+URL1: URL {
+  href: 'http://localhost/api/auth/is_logged_on',
+  origin: 'http://localhost',
+  protocol: 'http:',
+  username: '',
+  password: '',
+  host: 'localhost',
+  hostname: 'localhost',
+  port: '',
+  pathname: '/api/auth/is_logged_on',
+  search: '',
+  searchParams: URLSearchParams {},
+  hash: ''
+}
+URL2: /api/auth/is_logged_on?x-render-context=bot
+URL3 /?x-render-context=bot
+RSPONSE null
+✔ Building...
+Browser bundles      
+Initial chunk files   | Names            |  Raw size | Estimated transfer size
+main-GYZ5SP3J.js      | main             | 347.21 kB |                93.03 kB
+polyfills-5CFQRCPP.js | polyfills        |  34.59 kB |                11.33 kB
+styles-5INURTSO.css   | styles           |   0 bytes |                 0 bytes
+
+                      | Initial total    | 381.80 kB |               104.37 kB
+
+
+Server bundles       
+Initial chunk files   | Names            |  Raw size
+server.mjs            | server           | 851.89 kB |                        
+main.server.mjs       | main.server      | 781.01 kB |                        
+polyfills.server.mjs  | polyfills.server | 265.85 kB |                        
+chunk-IZUZOJJZ.mjs    | -                |   2.49 kB |                        
+chunk-L2MVFUKD.mjs    | -                |   1.32 kB |                        
+
+Lazy chunk files      | Names            |  Raw size
+chunk-RHDGF2TI.mjs    | xhr2             |  12.14 kB |                        
+chunk-ASD6CTRN.mjs    | xhr2             |  12.07 kB |                        
+
+Prerendered 1 static route.
+Application bundle generation failed. [6.218 seconds]
+

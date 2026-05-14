@@ -1,0 +1,9 @@
+{
+	"sqlite":
+	{
+		"DB_DIR": "/Users/avrahamzilberman/Development/devPP2024/COD_Stocks/__patterns_db",
+		"DB_NAME": "patterns_db.db"
+		
+	
+	}
+}

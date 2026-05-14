@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { Observable } from 'rxjs';
-const url = "http://localhost:3000/patterns"
+const url = "https://codcoda.backend.local/patterns"
 @Injectable()
 export class PatternDataService {
 

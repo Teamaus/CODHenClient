@@ -46,6 +46,7 @@ export class StockCardComponent {
     {
         this.selection.emit() 
     }
+    this.collapse()
   }
   collapse(){
       

@@ -1,5 +1,6 @@
+import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Directive } from '@angular/core';
+import { Directive, inject, PLATFORM_ID } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Directive({
@@ -7,14 +8,19 @@ import { Observable } from 'rxjs';
   exportAs:"logged_on"
 })
 export class IsLoggedOnDirective {
-
+  platformId = inject(PLATFORM_ID);
   constructor(private http:HttpClient) {
 
    }
    isLoggeOn():Observable<any>
    {
       
-      return this.http.post("http://localhost:3000/auth/is_logged_on",{},{withCredentials:true})
+      const url = isPlatformServer(this.platformId)
+  ? 'http://localhost:3000/api/auth/is_logged_on'
+  : '/api/auth/is_logged_on';
+
+
+      return this.http.post(url,{},{withCredentials:true})
    }
 
 }

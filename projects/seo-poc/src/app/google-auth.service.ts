@@ -15,7 +15,7 @@ export class GoogleAuthService {
   //'86730832151-3uktdklpdcguctbognv8o6fr66lojgns.apps.googleusercontent.com'  
   
 
-  private readonly apiUrl = 'http://localhost:3000';
+  private readonly apiUrl = '/api';
 
   private googleLoaded?: Promise<void>;
 

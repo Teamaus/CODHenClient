@@ -8,6 +8,8 @@ import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { appConfig } from '../../client-side/src/app/app.config';
+
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
@@ -75,7 +77,7 @@ app.use('/**', (req, res, next) => {
 if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;
   app.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(`Node Express server listening on http://localhost:${port},${process.cwd()}`);
   });
 }
 

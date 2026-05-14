@@ -2,7 +2,8 @@ import { Injectable, model, signal } from '@angular/core';
 import { Pattern, Patterns } from './contracts/patterns';
 import { StockCardViewModel } from './contracts/stock-card-vm';
 import { HttpClient } from '@angular/common/http';
-const url = "http://localhost:3000/patterns"
+const url = "/api/patterns"
+//const url = "/patterns"
 @Injectable()
 export class PatternsService {
   extractStock(item:any,chart_attributes:string[],sorted_attribute_names:string[]):StockCardViewModel{
