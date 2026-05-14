@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-codcoda-about',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './codcoda-about.component.css'
 })
 export class CodcodaAboutComponent {
-
+  @Input() title = ""
+  @Input() about = "" 
+  @Output() hide_about = new EventEmitter() 
+  
+  
 }

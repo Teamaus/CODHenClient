@@ -14,10 +14,11 @@ import { ListManipulationComponent } from '../COD/list-manipulation/list-manipul
 import { CodSortComponent } from '../COD/cod-sort/cod-sort/cod-sort.component';
 import { CodCheckboxComponent } from '../cod-checkbox/cod-checkbox.component';
 import { CodcodaButtonComponent } from '../codcoda-button/codcoda-button.component';
+import { CodcodaAboutComponent } from "../codcoda-about/codcoda-about.component";
 //
 @Component({
   selector: 'codcoda-stock-card-list',
-  imports: [StockCardComponent, NgForOf, CollapseExpandComponent, NgIf, DownloadButtonComponent,ListManipulationComponent,CodSortComponent,CodCheckboxComponent,CodcodaButtonComponent],
+  imports: [StockCardComponent, NgForOf, CollapseExpandComponent, NgIf, DownloadButtonComponent, ListManipulationComponent, CodSortComponent, CodCheckboxComponent, CodcodaButtonComponent, CodcodaAboutComponent],
   templateUrl: './stock-card-list.component.html',
   styleUrl: './stock-card-list.component.css',
   providers:[{provide:ICOLLAPSE_EXPAND,useExisting:forwardRef(()=>StockCardListComponent)}]
@@ -153,6 +154,8 @@ sectorFilter($event: string) {
   //closeOpenEffect = effect(()=>this.patternOpenCloseEffect())
   ngOnInit(): void {
     console.log("stocks in list:",this.pattern.stocks)
+    console.log("ABOUT:",this.pattern)
+
     if (this.pattern.stocks[0].sorted_attributes.length>0)
     {
 
@@ -190,6 +193,13 @@ sectorFilter($event: string) {
     window.URL.revokeObjectURL(url);    
 
     
+  }
+  show_about=false
+  About(){
+    this.show_about = true
+  }
+  hideAbout(){
+    this.show_about = false 
   }
  
 }

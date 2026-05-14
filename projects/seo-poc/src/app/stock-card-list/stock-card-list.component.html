@@ -7,7 +7,11 @@
 			
 		</h1>
 		<span class="stock-count">({{NumberOfStocksInList()}})</span>
+		<span><button (click)="About()">About</button></span>
 		</div>
+		<app-codcoda-about *ngIf="show_about" [title]="pattern.about.title" (hide_about)="hideAbout()" [about]="pattern.about.content">
+
+		</app-codcoda-about>
 		<div class="pattern-toolbar">
 			<cod-download-button (click)="export_to_csv(false)"></cod-download-button>
 			<cod-list-manipulation 

@@ -12,6 +12,7 @@ export interface Pattern{
 	sectors:string[]
 	sorted_attributes:string[]
 	save_stock_state?:boolean[] 
+	about:any
 	
 }
 

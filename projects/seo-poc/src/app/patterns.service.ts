@@ -55,6 +55,7 @@ export class PatternsService {
       pattern.sectors = [...pattern.sectors,"(All)"].sort()
       pattern.sorted_attributes = resp.sorted_attributes.map((attr:any)=>attr[0])
       console.log("RET:",pattern.sectors,pattern.sorted_attributes)
+      pattern.about = resp.about
       return pattern
   }
   getPatterns(id:string="DATA_ALL"){

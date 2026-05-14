@@ -1,1 +1,9 @@
-<p>codcoda-about works!</p>
+<div class="about-popup">
+  <div class="about-popup-content">
+    <h2>{{title}}</h2>
+
+    <p [innerHTML]="about"></p>
+
+    <button class="about-close-button" (click)="this.hide_about.emit()">Close</button>
+  </div>
+</div>
