@@ -2,16 +2,17 @@
 		<div class="pattern-title-row">
 		<codcoda-collapse-expand *ngIf="largeList()"></codcoda-collapse-expand>
 		<h1 class="pattern" >
-			{{pattern.pattern}} 
+			{{pattern.about.title}} 
 			
 			
 		</h1>
 		<span class="stock-count">({{NumberOfStocksInList()}})</span>
-		<span><button (click)="About()">About</button></span>
-		</div>
-		<app-codcoda-about *ngIf="show_about" [title]="pattern.about.title" (hide_about)="hideAbout()" [about]="pattern.about.content">
+		
+		<app-codcoda-about [title]="pattern.about.title" [about]="pattern.about.content">
 
 		</app-codcoda-about>
+		
+		</div>
 		<div class="pattern-toolbar">
 			<cod-download-button (click)="export_to_csv(false)"></cod-download-button>
 			<cod-list-manipulation 
@@ -21,12 +22,13 @@
 			</cod-list-manipulation>-->
 			<cod-sort [options]="pattern.sorted_attributes" (listChanged)="sortBy($event)"></cod-sort>
 			<cod-checkbox label="Visited only" (checked)="filterBySelected($event)"></cod-checkbox>
-			<codcoda-button (clickEvent)="Close()">Close all visited stocks</codcoda-button>
+			<codcoda-button src_path="/button/icons/close-all-visited-stocks.svg" (clickEvent)="Close()">Close all visited stocks</codcoda-button>
 		</div>
 	
 	<div class="stock-card-list">
+		
 		<div *ngFor="let stock of filtered_stocks()">
-				<codcoda-stock-card [stock]="stock"></codcoda-stock-card>
+			<codcoda-stock-card [stock]="stock" [prop_titles]="pattern.about.prop_titles"></codcoda-stock-card>
 		</div>
 	</div>
 </div>

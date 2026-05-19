@@ -25,13 +25,16 @@ import { FormsModule } from '@angular/forms';
 
 })
 export class StockCardComponent {
+  @Input() prop_titles:any 
+  @Input() pattern:any
+  
   @ViewChild("details") details?:ElementRef<HTMLDetailsElement>
   @Input() stock:StockCardViewModel = {} as StockCardViewModel
   isSelected = model<boolean>(false)
   @Output() selection = new EventEmitter() 
   @Output() openChanged = new EventEmitter<StockCardViewModel>()
   //@ViewChild(ICOLLAPSE_EXPAND) ce?:ICollapseExpand
-  ngOnInit(){
+  ngAfterViewInit(){
     console.log("STOCK:",this.stock)
   }
   hide(){
@@ -91,7 +94,11 @@ TradingView() {
   // optional
   this.tabRef.focus();
 }
-
+getPropTitle(prop:string)
+{
+   return this.prop_titles[prop]?this.prop_titles[prop]:prop
+}
+   
   
 
 }

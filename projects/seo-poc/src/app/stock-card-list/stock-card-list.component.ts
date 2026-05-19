@@ -154,7 +154,7 @@ sectorFilter($event: string) {
   //closeOpenEffect = effect(()=>this.patternOpenCloseEffect())
   ngOnInit(): void {
     console.log("stocks in list:",this.pattern.stocks)
-    console.log("ABOUT:",this.pattern)
+    console.log("ABOUT:",this.pattern,this.pattern.about)
 
     if (this.pattern.stocks[0].sorted_attributes.length>0)
     {
@@ -175,31 +175,27 @@ sectorFilter($event: string) {
     let filtered = this.stocks()
     if (!this.showAll())
         filtered = this.stocks().filter(stock=>stock.sector==""?sector=="(Empty)":stock.sector==sector)
+    if (this.selected_stocks())
+        filtered = filtered.filter(stock=>stock.selected)
     const symbols = filtered.map(stock=>stock.symbol)
     if (symbols.length==0)
       return 
     const symbolsCsv = symbols.join("\r\n")
-     const blob = new Blob([symbolsCsv], { type: 'text/csv;charset=utf-8;' });
+    const blob = new Blob([symbolsCsv], { type: 'text/csv;charset=utf-8;' });
     const url = window.URL.createObjectURL(blob);
-
+    
     const a = document.createElement('a');
     const today = new Date().toISOString().split('T')[0];
     console.log(today); // e.g. 2026-02-24
     a.href = url;
-    const name = this.showAll()?"":sector
-    a.download = `${this.pattern.pattern}.${today}.${name}.csv`;
+    const name = this.showAll()?".":`${sector}.`
+    const visited = this.selected_stocks()?"visited.":""
+    a.download = `${this.pattern.pattern}.${today}.${name}${visited}csv`;
     a.click();
 
     window.URL.revokeObjectURL(url);    
 
     
-  }
-  show_about=false
-  About(){
-    this.show_about = true
-  }
-  hideAbout(){
-    this.show_about = false 
   }
  
 }

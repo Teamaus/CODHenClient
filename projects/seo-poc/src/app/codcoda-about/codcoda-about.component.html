@@ -1,9 +1,28 @@
-<div class="about-popup">
+<span>
+  <button (click)="show_about=true" class="about-btn">
+  <svg
+    class="about-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+  >
+    <circle cx="12" cy="12" r="9"></circle>
+    <line x1="12" y1="10" x2="12" y2="16"></line>
+    <circle cx="12" cy="7" r="1"></circle>
+  </svg>
+
+  <span>About</span>
+</button>
+
+</span>
+<div class="about-popup" *ngIf="show_about">
   <div class="about-popup-content">
-    <h2>{{title}}</h2>
+    <h2>About: {{title}}</h2>
 
     <p [innerHTML]="about"></p>
 
-    <button class="about-close-button" (click)="this.hide_about.emit()">Close</button>
+    <button class="about-close-button" (click)="show_about=false">Close</button>
   </div>
 </div>

@@ -30,10 +30,10 @@
   </svg>
   </span>
   <div class="stock-row">
-      <span class="stock-field" *ngFor="let attr_entry of stock.attributes"><stock-field [label]="`${attr_entry[0]}`" [value]="attr_entry[1]"></stock-field></span>
+      <span class="stock-field" *ngFor="let attr_entry of stock.attributes"><stock-field [label]="`${getPropTitle(attr_entry[0])}`" [value]="attr_entry[1]"></stock-field></span>
   </div>
   <div class="buttons-row">
-      <codcoda-button style="grid-row:1;grid-column:2" (clickEvent)="TradingView()" >Trading-View</codcoda-button>
+      <codcoda-button src_path="/button/icons/expand.svg" style="grid-row:1;grid-column:2" (clickEvent)="TradingView()" >Trading-View</codcoda-button>
   </div>
   <div class="visited-label">{{stock.selected?'Visited':'Not Visited'}}</div>
 </div>

@@ -1,10 +1,11 @@
 <button (click)="clicked($event)" [ngClass]="theme()">
 	<!--<img src="button/icons/expand.png" class="icon"><span>Hello</span>-->
 	 <ng-content></ng-content>
-	<svg xmlns="http://www.w3.org/2000/svg" [ngClass]="theme()" width="12" height="12" fill="none" class="light" stroke-linecap="round" stroke-linejoin="round">
+	<!--<svg xmlns="http://www.w3.org/2000/svg" [ngClass]="theme()" width="12" height="12" fill="none" class="light" stroke-linecap="round" stroke-linejoin="round">
     <path d="M10.5 5.5v5a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h5" />
     <polyline points="8.5 1.5 10.5 1.5 10.5 3.5" />
     <line x1="10.5" y1="1.5" x2="5.5" y2="6.5" />
-  </svg>
+  </svg>-->
+  <img [src]="src_path" class="dark">
  
 </button>
