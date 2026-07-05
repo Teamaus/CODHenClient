@@ -2,6 +2,7 @@ import { Directive, EventEmitter, forwardRef, Signal } from '@angular/core';
 import { PatternsService } from './patterns.service';
 import { CODCODA_PAGE, IPage, Pattern } from './contracts/patterns';
 
+
 @Directive({
   selector: 'codcoda-page',
   providers:[{provide:CODCODA_PAGE,useExisting:forwardRef(()=>CodcodaPageDirective)}
@@ -10,13 +11,20 @@ import { CODCODA_PAGE, IPage, Pattern } from './contracts/patterns';
   exportAs:"codcoda_page"
 })
 export class CodcodaPageDirective implements IPage{
-
+  
   constructor(private patternService:PatternsService) {
-
+      console.log("getPatterns() directive")
+      console.trace("CREATED")
   }
   PageChanged(id: any): void {
+
     this.patternService.getPatterns(id)
     
+  }
+  ngOnDestroy() {
+    
+    console.log('CodcodaPageDirective DESTROYED');
+    console.trace("DESTROYED")
   }
   
   get ids(): any[] {

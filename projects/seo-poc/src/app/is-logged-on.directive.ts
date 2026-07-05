@@ -18,8 +18,9 @@ export class IsLoggedOnDirective {
       const url = isPlatformServer(this.platformId)
   ? 'http://localhost:3000/api/auth/is_logged_on'
   : '/api/auth/is_logged_on';
+   
 
-
+    console.log("IS LOGGED ON :",url)
       return this.http.post(url,{},{withCredentials:true})
    }
 

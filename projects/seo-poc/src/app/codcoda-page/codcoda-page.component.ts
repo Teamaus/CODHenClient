@@ -1,7 +1,7 @@
-import { Component, Inject, Signal } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, Signal } from '@angular/core';
 import { CODCODA_PAGE, IPage, Pattern } from '../contracts/patterns';
 import { StockCardListComponent } from '../stock-card-list/stock-card-list.component';
-import { NgForOf, NgForOfContext } from '@angular/common';
+import { isPlatformBrowser, NgForOf, NgForOfContext } from '@angular/common';
 import { CodcodaIdsComponent } from '../codcoda-ids/codcoda-ids.component';
 import { SelectControlValueAccessor } from '@angular/forms';
 
@@ -12,7 +12,10 @@ import { SelectControlValueAccessor } from '@angular/forms';
   styleUrl: './codcoda-page.component.css'
 })
 export class CodcodaPageComponent {
-  
+ 
+  ngOnInit(){
+    console.log("COMPONENT CREATED ")
+  }
   get patterns():Signal<Pattern[]>
   {
     return this.page.patterns
@@ -21,8 +24,12 @@ export class CodcodaPageComponent {
   {
     return this.page.ids
   }
-  constructor(@Inject(CODCODA_PAGE)private page:IPage){
+  constructor(@Inject(CODCODA_PAGE)private page:IPage,@Inject(PLATFORM_ID) private id:object){
+     console.log(isPlatformBrowser(this.id)?"Created Component CLIENT":"Created SERVER")
      
+  }
+  ngOnDestroy(){
+     console.log(isPlatformBrowser(this.id)?"Destroyed Component CLIENT":"Destroyed SERVER")
   }
   getSectors(){
     return this.page.sectors 

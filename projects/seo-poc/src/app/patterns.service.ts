@@ -1,9 +1,11 @@
-import { Injectable, model, signal } from '@angular/core';
+import { Inject, Injectable, model, PLATFORM_ID, signal } from '@angular/core';
 import { Pattern, Patterns } from './contracts/patterns';
 import { StockCardViewModel } from './contracts/stock-card-vm';
 import { HttpClient } from '@angular/common/http';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 const url = "/api/patterns"
 //const url = "/patterns"
+let sid = 0 
 @Injectable()
 export class PatternsService {
   extractStock(item:any,chart_attributes:string[],sorted_attribute_names:string[]):StockCardViewModel{
@@ -59,12 +61,14 @@ export class PatternsService {
       return pattern
   }
   getPatterns(id:string="DATA_ALL"){
+    console.time('getPatterns')
          this.http.get(`${url}?id=${id}`, {
   withCredentials: true
 })
       .subscribe(
         (resp:any)=>
-          { 
+          {
+             console.timeEnd('getPatterns') 
             console.log("RESP:",resp)
             let ret:any[] = [] 
             for(const r of resp.patterns as any[])
@@ -72,8 +76,9 @@ export class PatternsService {
               const pattern = this.extractData(r)
               console.log("Pattern:",pattern)
               ret  = [...ret,pattern]
-              
+ 
             }
+           
             this.patterns.set(ret)
             this.ids = resp.ids
           }
@@ -83,8 +88,14 @@ export class PatternsService {
  
 
   }
-  constructor(private http:HttpClient) { 
-      this.getPatterns()
+  constructor(private http:HttpClient,@Inject(PLATFORM_ID)  platformId: Object) { 
+      console.log("getPatterns() instance ",platformId)
+      ++sid
+      if (!isPlatformServer(platformId))
+      {
+         console.log("getPatterns() calling ")
+         this.getPatterns()
+      }
   }
   patterns = signal<any[]>([]) 
   sectors = []

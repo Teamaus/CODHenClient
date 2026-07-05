@@ -72,17 +72,11 @@ export class GoogleAuthService {
     console.log('RUNTIME clientId:', this.clientId);
     console.log('RUNTIME origin:', location.origin);
 
-window.google.accounts.id.initialize({
-  client_id: this.clientId,
-  callback: (resp: any) => onToken(resp.credential),
-});    
     window.google.accounts.id.initialize({
       client_id: this.clientId,
-      callback: (response: any) => {
-        // This is the ID token (JWT)
-        onToken(response.credential);
-      },
-    });
+      callback: (resp: any) => onToken(resp.credential),
+    });    
+    
   }
 
   async renderButton(element: HTMLElement): Promise<void> {
@@ -96,10 +90,12 @@ window.google.accounts.id.initialize({
   }
 
   async loginWithBackend(idToken: string) {
-    return await firstValueFrom(
+    const retval =  await firstValueFrom(
       this.http.post<{ token: string }>(`${this.apiUrl}/auth/google`, { idToken },{
   withCredentials: true
 })
     );
+    console.log("RETVAL:",retval)
+    return retval 
   }
 }

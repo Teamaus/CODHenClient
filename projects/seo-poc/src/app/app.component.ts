@@ -6,7 +6,7 @@ import { StockCardListComponent } from './stock-card-list/stock-card-list.compon
 import { NgForOf, NgIf } from '@angular/common';
 import { TestEcComponent } from './test-ec/test-ec.component';
 import { StockListComponent } from '../../../../src/app/stock-list/stock-list.component';
-import { PatternsService } from './patterns.service';
+
 import { StockCardViewModel } from './contracts/stock-card-vm';
 import { Pattern } from './contracts/patterns';
 
